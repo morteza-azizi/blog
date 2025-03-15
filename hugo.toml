@@ -1,8 +1,6 @@
-baseURL = 'https://mortezaazizi.com'
 languageCode = 'en-us'
 title = 'Morteza Azizi'
 theme = 'PaperMod'
-canonifyURLs = true
 
 [params]
     defaultTheme = "auto"
