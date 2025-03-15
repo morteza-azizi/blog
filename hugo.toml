@@ -1,0 +1,16 @@
+baseURL = 'http://localhost:1313/'
+languageCode = 'en-us'
+title = 'Morteza Azizi'
+theme = 'PaperMod'
+
+[params]
+    defaultTheme = "auto"
+    ShowBreadCrumbs = true
+    ShowToc = true
+
+[menu]
+    [[menu.main]]
+        identifier = "about"
+        name = "About"
+        url = "/about/"
+        weight = 1
