@@ -4,7 +4,7 @@ title = 'Morteza Azizi'
 theme = 'PaperMod'
 
 [permalinks]
-  pages = "/:slug"
+  pages = "/:filename"
 
 [params]
     defaultTheme = "auto"
