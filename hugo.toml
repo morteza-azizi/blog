@@ -1,7 +1,10 @@
-baseURL = 'https://blog-39a.pages.dev/'
+baseURL = 'https://mortezaazizi.com'
 languageCode = 'en-us'
 title = 'Morteza Azizi'
 theme = 'PaperMod'
+
+[permalinks]
+  pages = "/:slug"
 
 [params]
     defaultTheme = "auto"
@@ -12,5 +15,5 @@ theme = 'PaperMod'
     [[menu.main]]
         identifier = "about"
         name = "About"
-        url = "/about/"
+        url = "/about"
         weight = 1
