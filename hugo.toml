@@ -1,6 +1,6 @@
 languageCode = 'en-us'
 title = 'Morteza Azizi'
-theme = 'PaperMod'
+theme = 'hugo-coder'
 
 [params]
     defaultTheme = "auto"
