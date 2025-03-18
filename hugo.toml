@@ -1,3 +1,4 @@
+baseURL = "https://www.mortezaazizi.com/"
 languageCode = 'en-us'
 title = 'Morteza Azizi'
 theme = 'hugo-coder'
