@@ -1,0 +1,16 @@
+baseURL = "https://www.mortezaazizi.com/"
+languageCode = 'en-us'
+title = 'Morteza Azizi'
+theme = 'hugo-coder'
+
+[params]
+    defaultTheme = "auto"
+    ShowBreadCrumbs = true
+    ShowToc = true
+
+[menu]
+    [[menu.main]]
+        identifier = "about"
+        name = "About"
+        url = "/about/"
+        weight = 1
