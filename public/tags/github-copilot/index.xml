@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GitHub Copilot on Morteza Azizi</title>
+    <link>http://localhost:1313/tags/github-copilot/</link>
+    <description>Recent content in GitHub Copilot on Morteza Azizi</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 26 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/github-copilot/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>15 Essential AI Coding Assistant Features That Boost Developer Productivity in 2024</title>
+      <link>http://localhost:1313/posts/ai-coding-assistants-key-features/</link>
+      <pubDate>Tue, 26 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/ai-coding-assistants-key-features/</guid>
+      <description>&lt;h1 id=&#34;15-essential-ai-coding-assistant-features-that-boost-developer-productivity&#34;&gt;&#xD;&#xA;  15 Essential AI Coding Assistant Features That Boost Developer Productivity&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#15-essential-ai-coding-assistant-features-that-boost-developer-productivity&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;AI-powered coding tools—such as &lt;a href=&#34;https://copilot.github.com/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub Copilot&lt;/a&gt; and &lt;a href=&#34;https://cursor.sh/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cursor AI&lt;/a&gt;— are revolutionizing the development workflow by offering intelligent assistance for writing, debugging, and optimizing code. In this article, we&amp;rsquo;ll explore the main features provided by these tools, using Golang examples to demonstrate their practical applications.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;1-code-autocompletion&#34;&gt;&#xD;&#xA;  1. Code Autocompletion&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#1-code-autocompletion&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h2&gt;&#xD;&#xA;&lt;h3 id=&#34;description&#34;&gt;&#xD;&#xA;  Description&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#description&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h3&gt;&#xD;&#xA;&lt;p&gt;AI-powered coding assistants can predict and suggest the next part of your code based on context. In Golang, this might mean auto-generating function bodies or completing expressions as you type.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Morteza Azizi</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content on Morteza Azizi</description>
+    <title>Posts on Morteza Azizi</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Posts on Morteza Azizi</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 Mar 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>About</title>
-      <link>http://localhost:1313/about/</link>
-      <pubDate>Sat, 15 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/about/</guid>
-      <description>&lt;p&gt;&amp;ldquo;I am a Software Architect and Engineer based in Amsterdam, Netherlands, with over 18 years of experience designing and building scalable, high-performance systems. My work spans industries like banking, energy, insurance, and retail, where I have designed robust architectures, implemented complex backend systems, and solved large-scale engineering challenges. I specialize in .NET, cloud technologies (Azure, AWS), and enterprise software development.&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;&amp;ldquo;I am passionate about software design and coding, always striving to create efficient, maintainable, and scalable solutions. I have a strong focus on software architecture, Clean Architecture principles, Domain-Driven Design (DDD), and Test-Driven Development (TDD) to build high-quality software. My goal is to expand my expertise by contributing to open-source projects and sharing my knowledge through writing and speaking. This site is my platform to share my journey, ideas, and projects as I continue growing in the field.&amp;rdquo;&lt;/p&gt;</description>
-    </item>
+    <lastBuildDate>Tue, 26 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>15 Essential AI Coding Assistant Features That Boost Developer Productivity in 2024</title>
       <link>http://localhost:1313/posts/15-essential-ai-coding-assistant-features-that-boost-developer-productivity-in-2024/</link>

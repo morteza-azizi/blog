@@ -1,0 +1,8 @@
+<div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+  {{- range $index, $el := . -}}
+    <span class="taxonomy-element">
+      <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+    </span>
+  {{- end -}}
+</div> 
