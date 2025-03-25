@@ -7,10 +7,18 @@ theme = 'hugo-coder'
     defaultTheme = "auto"
     ShowBreadCrumbs = true
     ShowToc = true
+    mainSections = ["posts"]
+    customCSS = ["css/custom.css"]
 
 [menu]
+    [[menu.main]]
+        identifier = "posts"
+        name = "Posts"
+        url = "/posts/"
+        weight = 1
+        
     [[menu.main]]
         identifier = "about"
         name = "About"
         url = "/about/"
-        weight = 1
+        weight = 2
