@@ -65,8 +65,8 @@ func main() {
 
 Here, the assistant understands the comment and context, generating a recursive factorial function in Golang.
 
-3. Bug Detection & Fixing
-Description
+## 3. Bug Detection & Fixing
+### Description
 AI coding assistants help detect bugs or syntax errors, providing fixes for common issues such as missing error handling or incorrect logic.
 
 ### Sample
@@ -91,12 +91,13 @@ func main() {
 ```
 The AI can identify that error handling is missing and suggest proper error checking.
 
-4. Code Refactoring
-Description
+## 4. Code Refactoring
+### Description
 AI tools suggest improvements for readability and maintainability without changing functionality. They can help refactor loops, conditionals, or entire code blocks.
 
 Sample
 
+```go
 // Before: Using a loop to filter even numbers
 package main
 
@@ -116,6 +117,7 @@ func main() {
     nums := []int{1, 2, 3, 4, 5, 6}
     fmt.Println(FilterEvens(nums))
 }
+```
 
 // AI refactoring suggestion: Use a more functional approach with a helper function
 func FilterEvensRefactored(numbers []int) []int {
@@ -131,11 +133,13 @@ func FilterEvensRefactored(numbers []int) []int {
 While Golang isn't as functional as some languages, an AI might still suggest renaming or restructuring for clarity.
 
 
-5. Natural Language to Code (NL2Code)
-Description
+## 5. Natural Language to Code (NL2Code)
+### Description
 Some AI assistants convert natural language prompts directly into code. Describe your task in plain language, and the AI generates the corresponding Golang function.
 
 Sample
+
+```go
 // Natural language prompt:
 // "Create a function that calculates the factorial of a number recursively."
 
@@ -154,16 +158,18 @@ func Factorial(n int) int {
 func main() {
     fmt.Println(Factorial(5))
 }
+```
 
 The assistant transforms the plain language prompt into a fully functional Golang method.
 
 
-6. Code Snippets
-Description
+## 6. Code Snippets
+### Description
 AI tools provide ready-to-use code snippets for common tasks. Below is an example of setting up a basic HTTP server in Golang.
 
 Sample
 
+```go
 package main
 
 import (
@@ -181,11 +187,12 @@ func main() {
     log.Println("Server running on http://localhost:8080")
     log.Fatal(http.ListenAndServe(":8080", nil))
 }
+```
 
 This snippet demonstrates a basic HTTP server in Golang.
 
 
-7. Integration with IDEs
+## 7. Integration with IDEs
 
 AI coding assistants are designed to seamlessly integrate with Integrated Development Environments (IDEs), enhancing the development workflow by providing real-time code suggestions, error detection, and other intelligent features directly within the coding environment.​
 
@@ -200,11 +207,13 @@ Visual Studio: GitHub Copilot also integrates with Visual Studio, bringing AI-po
 
 Neovim: Support for Neovim allows developers to utilize AI coding assistance within this editor.
 
-8. Documentation Generation
-Description
+## 8. Documentation Generation
+### Des cription
 AI tools can auto-generate documentation comments (GoDoc) to help maintain clear, up-to-date code documentation.
 
 Sample
+
+```go
 // CalculateArea calculates the area of a circle.
 // It takes the radius as input and returns the area.
 func CalculateArea(radius float64) float64 {
@@ -215,6 +224,7 @@ func main() {
     // The generated GoDoc helps in understanding what CalculateArea does.
     fmt.Println(CalculateArea(5))
 }
+```
 
 The GoDoc style comments automatically integrate with documentation tools for Golang.
 
@@ -318,4 +328,3 @@ Some AI assistants support real-time collaborative coding, enabling multiple dev
 ### Sample
 - Replit: Replit's Multiplayer Mode, combined with AI, enables teams to collaborate on the same codebase in real-time. Multiple developers can work together while benefiting from Ghostwriter's code suggestions.
 - AWS Cloud9: A cloud-based IDE that allows collaborative coding with features like shared terminals and real-time code editing.
-
