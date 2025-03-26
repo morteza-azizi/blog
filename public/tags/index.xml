@@ -2,38 +2,59 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Morteza Azizi</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>https://www.mortezaazizi.com/tags/</link>
     <description>Recent content in Tags on Morteza Azizi</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 26 Mar 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.mortezaazizi.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>AI</title>
-      <link>http://localhost:1313/tags/ai/</link>
+      <title>AI Coding</title>
+      <link>https://www.mortezaazizi.com/tags/ai-coding/</link>
       <pubDate>Tue, 26 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/ai/</guid>
+      <guid>https://www.mortezaazizi.com/tags/ai-coding/</guid>
       <description></description>
     </item>
     <item>
-      <title>Coding</title>
-      <link>http://localhost:1313/tags/coding/</link>
+      <title>Code Generation</title>
+      <link>https://www.mortezaazizi.com/tags/code-generation/</link>
       <pubDate>Tue, 26 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/coding/</guid>
+      <guid>https://www.mortezaazizi.com/tags/code-generation/</guid>
       <description></description>
     </item>
     <item>
-      <title>Development</title>
-      <link>http://localhost:1313/tags/development/</link>
+      <title>Cursor AI</title>
+      <link>https://www.mortezaazizi.com/tags/cursor-ai/</link>
       <pubDate>Tue, 26 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/development/</guid>
+      <guid>https://www.mortezaazizi.com/tags/cursor-ai/</guid>
       <description></description>
     </item>
     <item>
-      <title>Tools</title>
-      <link>http://localhost:1313/tags/tools/</link>
+      <title>Developer Tools</title>
+      <link>https://www.mortezaazizi.com/tags/developer-tools/</link>
       <pubDate>Tue, 26 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/tools/</guid>
+      <guid>https://www.mortezaazizi.com/tags/developer-tools/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>GitHub Copilot</title>
+      <link>https://www.mortezaazizi.com/tags/github-copilot/</link>
+      <pubDate>Tue, 26 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mortezaazizi.com/tags/github-copilot/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Productivity</title>
+      <link>https://www.mortezaazizi.com/tags/productivity/</link>
+      <pubDate>Tue, 26 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mortezaazizi.com/tags/productivity/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Programming</title>
+      <link>https://www.mortezaazizi.com/tags/programming/</link>
+      <pubDate>Tue, 26 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.mortezaazizi.com/tags/programming/</guid>
       <description></description>
     </item>
   </channel>
