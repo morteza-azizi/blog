@@ -32,6 +32,26 @@ The table below outlines the key metrics I'll be measuring in my comparison. As 
 
 <div style="margin: 30px 0;">
 
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+}
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+</style>
+
 | **Task**                           | **Tool**  | **Accuracy** | **Quality** | **Speed** | **Context Awareness** | **Creativity & Adaptability** | **User Experience** |
 |------------------------------------|-----------|--------------|-------------|-----------|------------------------|-------------------------------|---------------------|
 | **Code Completion**                | Copilot   | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             |
@@ -68,16 +88,6 @@ In addition to the performance metrics above, I'll evaluate the cost-effectivene
 - Team vs. individual licensing options
 - Free tier capabilities
 - Integration costs with existing development workflows
-
-## Methodology
-
-For each task category listed above, I'll create standardized tests that measure the performance of both GitHub Copilot and Cursor AI under identical conditions. The testing process will include:
-
-1. **Designing test scenarios**: Creating representative programming tasks that reflect real-world development challenges
-2. **Establishing metrics**: Defining clear, measurable criteria for each performance dimension
-3. **Recording interactions**: Documenting the entire testing process with screen recordings and logs
-4. **Data collection**: Gathering quantitative and qualitative data on performance across all metrics
-5. **Analysis**: Drawing evidence-based conclusions about the relative strengths and weaknesses of each tool
 
 ## Next Steps
 
