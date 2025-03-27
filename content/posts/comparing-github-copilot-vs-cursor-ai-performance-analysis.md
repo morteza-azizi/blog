@@ -1,6 +1,6 @@
 ---
 title: "Comparing GitHub Copilot vs Cursor AI: Performance Analysis"
-date: 2024-04-25
+date: 2024-03-26
 draft: false
 tags: ["GitHub Copilot", "Cursor AI", "AI coding", "developer tools", "productivity", "comparison"]
 ---
@@ -30,30 +30,34 @@ All tests will be conducted on the same hardware and software environment to eli
 
 The table below outlines the key metrics I'll be measuring in my comparison. As testing has not yet been conducted, all values are marked as "Pending" and will be replaced with actual measurements once the evaluation is complete.
 
-| **Task**                           | **Tool**  | **Accuracy** | **Quality** | **Speed** | **Context Awareness** | **Creativity & Adaptability** | **User Experience** | **Resource Usage** | **Learning Curve** |
-|------------------------------------|-----------|--------------|-------------|-----------|------------------------|-------------------------------|---------------------|-------------------|---------------------|
-| **Code Completion**                | Copilot   | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             | Pending           | Pending             |
-|                                    | Cursor    | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             | Pending           | Pending             |
-| **Code Refactoring**               | Copilot   | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             | Pending           | Pending             |
-|                                    | Cursor    | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             | Pending           | Pending             |
-| **Bug Fixing**                     | Copilot   | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             | Pending           | Pending             |
-|                                    | Cursor    | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             | Pending           | Pending             |
-| **Explanation & Documentation**    | Copilot   | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             | Pending           | Pending             |
-|                                    | Cursor    | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             | Pending           | Pending             |
-| **Debugging Suggestions**          | Copilot   | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             | Pending           | Pending             |
-|                                    | Cursor    | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             | Pending           | Pending             |
-| **Test Case Generation**           | Copilot   | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             | Pending           | Pending             |
-|                                    | Cursor    | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             | Pending           | Pending             |
-| **Code Style & Consistency**       | Copilot   | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             | Pending           | Pending             |
-|                                    | Cursor    | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             | Pending           | Pending             |
-| **Security Vulnerability Detection**| Copilot  | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             | Pending           | Pending             |
-|                                    | Cursor    | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             | Pending           | Pending             |
-| **Code Optimization**              | Copilot   | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             | Pending           | Pending             |
-|                                    | Cursor    | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             | Pending           | Pending             |
-| **Version Control Integration**    | Copilot   | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             | Pending           | Pending             |
-|                                    | Cursor    | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             | Pending           | Pending             |
-| **Multi-language Support**         | Copilot   | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             | Pending           | Pending             |
-|                                    | Cursor    | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             | Pending           | Pending             |
+<div style="margin: 30px 0;">
+
+| **Task**                           | **Tool**  | **Accuracy** | **Quality** | **Speed** | **Context Awareness** | **Creativity & Adaptability** | **User Experience** |
+|------------------------------------|-----------|--------------|-------------|-----------|------------------------|-------------------------------|---------------------|
+| **Code Completion**                | Copilot   | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             |
+|                                    | Cursor    | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             |
+| **Code Refactoring**               | Copilot   | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             |
+|                                    | Cursor    | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             |
+| **Bug Fixing**                     | Copilot   | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             |
+|                                    | Cursor    | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             |
+| **Explanation & Documentation**    | Copilot   | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             |
+|                                    | Cursor    | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             |
+| **Debugging Suggestions**          | Copilot   | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             |
+|                                    | Cursor    | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             |
+| **Test Case Generation**           | Copilot   | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             |
+|                                    | Cursor    | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             |
+| **Code Style & Consistency**       | Copilot   | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             |
+|                                    | Cursor    | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             |
+| **Security Vulnerability Detection**| Copilot  | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             |
+|                                    | Cursor    | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             |
+| **Code Optimization**              | Copilot   | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             |
+|                                    | Cursor    | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             |
+| **Version Control Integration**    | Copilot   | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             |
+|                                    | Cursor    | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             |
+| **Multi-language Support**         | Copilot   | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             |
+|                                    | Cursor    | Pending      | Pending     | Pending   | Pending                | Pending                       | Pending             |
+
+</div>
 
 ### Cost-Effectiveness Analysis
 
