@@ -6,9 +6,7 @@ ShowBreadCrumbs: false
 ShowToc: false
 ---
 
-# About Me
-
-I am a Software Architect and Engineer based in Amsterdam, Netherlands, with over 18 years of experience designing and building scalable, high-performance systems. My work spans industries like banking, energy, insurance, and retail, where I have designed robust architectures, implemented complex backend systems, and solved large-scale engineering challenges. I specialize in .NET, cloud technologies (Azure, AWS), and enterprise software development.
+I am a Software Architect with deep engineering roots based in Amsterdam, Netherlands, with over 18 years of experience designing and building scalable, high-performance systems. My work spans industries like banking, energy, insurance, and retail, where I have designed robust architectures, implemented complex backend systems, and solved large-scale engineering challenges. I specialize in .NET, cloud technologies (Azure, AWS), and enterprise software development.
 
 I am passionate about software design and coding, always striving to create efficient, maintainable, and scalable solutions. I have a strong focus on software architecture, Clean Architecture principles, Domain-Driven Design (DDD), and Test-Driven Development (TDD) to build high-quality software. 
 
