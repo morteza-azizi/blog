@@ -12,6 +12,7 @@
 
 
 
+<meta name="author" content="Morteza Azizi">
 <meta name="description" content="
   15 Essential GitHub Copilot Features to Enhance Your Coding Workflow
   
@@ -35,8 +36,8 @@ GitHub Copilot has emerged as one of the leading AI-powered coding assistants, t
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2024-04-15T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-04-15T00:00:00+00:00">
+    <meta property="article:published_time" content="2024-03-26T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-03-26T00:00:00+00:00">
     <meta property="article:tag" content="GitHub Copilot">
     <meta property="article:tag" content="AI Coding">
     <meta property="article:tag" content="Developer Tools">
@@ -67,11 +68,6 @@ GitHub Copilot has emerged as one of the leading AI-powered coding assistants, t
 
 
  
-  
-    
-    <link rel="stylesheet" href="/css/custom.css" media="screen">
-  
-
 
 
 
@@ -93,6 +89,12 @@ GitHub Copilot has emerged as one of the leading AI-powered coding assistants, t
 
 
 
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9.3.0/dist/mermaid.min.js"
+    integrity="sha256-QdTG1YTLLTwD3b95jLqFxpQX9uYuJMNAtVZgwKX4oYU=" crossorigin="anonymous"></script>
+<script>
+    mermaid.initialize({ startOnLoad: true });
+</script>
 
 </head>
 
@@ -156,13 +158,13 @@ GitHub Copilot has emerged as one of the leading AI-powered coding assistants, t
           <div class="date">
             <span class="posted-on">
               <i class="fa-solid fa-calendar" aria-hidden="true"></i>
-              <time datetime="2024-04-15T00:00:00Z">
-                April 15, 2024
+              <time datetime="2024-03-26T00:00:00Z">
+                March 26, 2024
               </time>
             </span>
             <span class="reading-time">
               <i class="fa-solid fa-clock" aria-hidden="true"></i>
-              9-minute read
+              17-minute read
             </span>
           </div>
           
@@ -218,15 +220,16 @@ GitHub Copilot has emerged as one of the leading AI-powered coding assistants, t
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// Example: Creating a function to calculate the Fibonacci sequence in JavaScript
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fibonacci</span>(<span style="color:#a6e22e">n</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">n</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">n</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">fibonacci</span>(<span style="color:#a6e22e">n</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">+</span> <span style="color:#a6e22e">fibonacci</span>(<span style="color:#a6e22e">n</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// Example: Creating a method to calculate the Fibonacci sequence in C#</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> Fibonacci(<span style="color:#66d9ef">int</span> n)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (n &lt;= <span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">return</span> n;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> Fibonacci(n - <span style="color:#ae81ff">1</span>) + Fibonacci(n - <span style="color:#ae81ff">2</span>);
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// When you start typing a call to this function
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fibonacci</span>(<span style="color:#ae81ff">10</span>); <span style="color:#75715e">// Copilot might suggest this complete line
-</span></span></span></code></pre></div><p>Copilot can suggest the entire function implementation or just the function call, depending on the context of your code.</p>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// When you start typing a call to this method</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> result = Fibonacci(<span style="color:#ae81ff">10</span>); <span style="color:#75715e">// Copilot might suggest this complete line</span>
+</span></span></code></pre></div><p>Copilot can suggest the entire method implementation or just the method call, depending on the context of your code.</p>
 <p>For more information, see <a href="https://docs.github.com/en/copilot/about-github-copilot/github-copilot-features"  class="external-link" target="_blank" rel="noopener">GitHub Copilot features</a>.</p>
 <h2 id="2-copilot-chat">
   2. Copilot Chat
@@ -251,10 +254,10 @@ GitHub Copilot has emerged as one of the leading AI-powered coding assistants, t
   </a>
 </h3>
 <ul>
-<li><strong>Code explanation</strong>: &ldquo;Explain how this React useEffect hook works&rdquo;</li>
-<li><strong>Problem solving</strong>: &ldquo;How do I implement pagination in a REST API?&rdquo;</li>
-<li><strong>Debugging assistance</strong>: &ldquo;Why am I getting this TypeError in my code?&rdquo;</li>
-<li><strong>Best practices</strong>: &ldquo;What&rsquo;s the most efficient way to merge these two arrays?&rdquo;</li>
+<li><strong>Code explanation</strong>: &ldquo;Explain how this ASP.NET Core dependency injection works&rdquo;</li>
+<li><strong>Problem solving</strong>: &ldquo;How do I implement authentication in a .NET API?&rdquo;</li>
+<li><strong>Debugging assistance</strong>: &ldquo;Why am I getting this NullReferenceException in my code?&rdquo;</li>
+<li><strong>Best practices</strong>: &ldquo;What&rsquo;s the most efficient way to query a large dataset in Entity Framework?&rdquo;</li>
 </ul>
 <p>Copilot Chat is available in supported IDEs (VS Code, Visual Studio, JetBrains IDEs, Xcode) and directly on GitHub.com.</p>
 <p>For more details, check out <a href="https://docs.github.com/en/copilot/github-copilot-chat/using-github-copilot-chat"  class="external-link" target="_blank" rel="noopener">GitHub Copilot Chat documentation</a>.</p>
@@ -286,7 +289,70 @@ GitHub Copilot has emerged as one of the leading AI-powered coding assistants, t
 <li><strong>Autonomous operation</strong>: In Agent mode, Copilot can determine which files need changes, make those changes, and iterate until the task is complete</li>
 <li><strong>Developer control</strong>: In Edit mode, you can approve each change before it&rsquo;s applied</li>
 </ul>
-<p>This feature is particularly valuable for refactoring tasks or implementing new features that affect multiple parts of your application.</p>
+<h3 id="sample-1">
+  Sample
+  <a class="heading-link" href="#sample-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// Example: Adding a new user management feature across multiple files</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// In UserController.cs</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">[ApiController]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">[Route(&#34;api/[controller]</span><span style="color:#e6db74">&#34;)]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserController</span> : ControllerBase
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> IUserService _userService;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> UserController(IUserService userService)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        _userService = userService;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">    
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">    [HttpGet(&#34;{id}&#34;)]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task&lt;ActionResult&lt;UserDto&gt;&gt; GetUser(<span style="color:#66d9ef">string</span> id)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> user = <span style="color:#66d9ef">await</span> _userService.GetUserByIdAsync(id);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (user == <span style="color:#66d9ef">null</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> NotFound();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Ok(user);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// In UserService.cs</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserService</span> : IUserService
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> IUserRepository _userRepository;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> UserService(IUserRepository userRepository)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        _userRepository = userRepository;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task&lt;UserDto&gt; GetUserByIdAsync(<span style="color:#66d9ef">string</span> id)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> user = <span style="color:#66d9ef">await</span> _userRepository.GetByIdAsync(id);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (user == <span style="color:#66d9ef">null</span>) <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> UserDto
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            Id = user.Id,
+</span></span><span style="display:flex;"><span>            Username = user.Username,
+</span></span><span style="display:flex;"><span>            Email = user.Email,
+</span></span><span style="display:flex;"><span>            CreatedAt = user.CreatedAt
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// In IUserService.cs</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">IUserService</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    Task&lt;UserDto&gt; GetUserByIdAsync(<span style="color:#66d9ef">string</span> id);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This feature is particularly valuable for refactoring tasks or implementing new features that affect multiple parts of your application.</p>
 <p>Read more about <a href="https://code.visualstudio.com/docs/copilot/copilot-chat#_copilot-edits"  class="external-link" target="_blank" rel="noopener">Copilot Edits in the VS Code documentation</a>.</p>
 <h2 id="4-next-edit-suggestions">
   4. Next Edit Suggestions
@@ -315,7 +381,34 @@ GitHub Copilot has emerged as one of the leading AI-powered coding assistants, t
 <li><strong>Workflow acceleration</strong>: Less time spent navigating to the next edit location</li>
 <li><strong>Intuitive coding</strong>: The suggestions feel natural and align with your coding flow</li>
 </ul>
-<p>This feature helps maintain your train of thought and reduces the cognitive load of remembering where changes need to be made next.</p>
+<h3 id="sample-2">
+  Sample
+  <a class="heading-link" href="#sample-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// When writing a series of related methods in a class</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OrderProcessor</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task&lt;Order&gt; CreateOrderAsync(OrderRequest request)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Code to create an order</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Copilot might suggest this next method:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task&lt;Order&gt; UpdateOrderAsync(<span style="color:#66d9ef">string</span> orderId, OrderUpdateRequest request)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Code to update an order</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// And then predict you&#39;ll need this method next:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task&lt;<span style="color:#66d9ef">bool</span>&gt; CancelOrderAsync(<span style="color:#66d9ef">string</span> orderId)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Code to cancel an order</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This feature helps maintain your train of thought and reduces the cognitive load of remembering where changes need to be made next.</p>
 <p>Learn more from <a href="https://docs.github.com/en/copilot/about-github-copilot/github-copilot-features#code-completion"  class="external-link" target="_blank" rel="noopener">GitHub&rsquo;s Copilot features page</a>.</p>
 <h2 id="5-pull-request-summaries">
   5. Pull Request Summaries
@@ -345,7 +438,27 @@ GitHub Copilot has emerged as one of the leading AI-powered coding assistants, t
 <li><strong>Review focus areas</strong>: Suggestions on which parts of the code deserve special attention</li>
 <li><strong>Potential issues</strong>: Highlighting of possible problems or concerns</li>
 </ul>
-<p>This feature streamlines the code review process by providing valuable context and saving reviewers time in understanding the PR&rsquo;s purpose and scope.</p>
+<h3 id="sample-summary">
+  Sample Summary
+  <a class="heading-link" href="#sample-summary">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<pre tabindex="0"><code>This PR implements user authentication functionality with the following changes:
+
+Key changes:
+- Adds new UserAuthController with login and registration endpoints
+- Creates JwtTokenService for generating and validating tokens
+- Implements password hashing in UserService
+- Adds authentication middleware configuration in Startup.cs
+- Includes unit tests for authentication logic
+
+Areas that might need attention:
+- The token expiration time is currently set to 1 hour - consider if this meets requirements
+- Error handling in the authentication flow might need additional testing
+- Password policy implementation is basic and may need enhancement
+</code></pre><p>This feature streamlines the code review process by providing valuable context and saving reviewers time in understanding the PR&rsquo;s purpose and scope.</p>
 <p>For more information, visit <a href="https://docs.github.com/en/copilot/working-with-github-copilot/creating-a-pull-request-summary-with-github-copilot"  class="external-link" target="_blank" rel="noopener">Creating a pull request summary with GitHub Copilot</a>.</p>
 <h2 id="6-copilot-in-the-cli">
   6. Copilot in the CLI
@@ -370,12 +483,26 @@ GitHub Copilot has emerged as one of the leading AI-powered coding assistants, t
   </a>
 </h3>
 <ul>
-<li>&ldquo;How do I find all files modified in the last 3 days?&rdquo;</li>
-<li>&ldquo;What&rsquo;s the command to compress this directory into a tar.gz file?&rdquo;</li>
-<li>&ldquo;Explain what this Docker command is doing&rdquo;</li>
-<li>&ldquo;Generate a git command to undo my last three commits&rdquo;</li>
+<li>&ldquo;How do I list all stopped Docker containers?&rdquo;</li>
+<li>&ldquo;What&rsquo;s the command to scaffold a new ASP.NET Core Web API project?&rdquo;</li>
+<li>&ldquo;Create a PowerShell command to find all .cs files modified in the last week&rdquo;</li>
+<li>&ldquo;Generate a git command to squash my last three commits&rdquo;</li>
 </ul>
-<p>This feature is particularly helpful for developers who need to navigate complex command-line operations or who are learning new CLI tools.</p>
+<h3 id="sample-output">
+  Sample Output
+  <a class="heading-link" href="#sample-output">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<pre tabindex="0"><code>&gt; Copilot: create a dotnet command to add a migration for entity framework
+
+Command: dotnet ef migrations add InitialCreate
+
+Explanation: This command adds a new EF Core migration named &#34;InitialCreate&#34;. 
+You&#39;ll need to have the EF Core tools installed (dotnet tool install --global dotnet-ef) 
+and have DbContext configured in your project.
+</code></pre><p>This feature is particularly helpful for developers who need to navigate complex command-line operations or who are learning new CLI tools.</p>
 <p>Check out <a href="https://docs.github.com/en/copilot/github-copilot-in-the-cli/using-github-copilot-in-the-cli"  class="external-link" target="_blank" rel="noopener">Using GitHub Copilot in the command line</a> for more details.</p>
 <h2 id="7-code-review-suggestions">
   7. Code Review Suggestions
@@ -405,7 +532,49 @@ GitHub Copilot has emerged as one of the leading AI-powered coding assistants, t
 <li><strong>Performance optimization</strong>: Suggesting more efficient approaches</li>
 <li><strong>Code style improvements</strong>: Recommending cleaner, more maintainable code patterns</li>
 </ul>
-<p>This proactive review process helps catch issues early in the development cycle, reducing the time spent in formal code reviews.</p>
+<h3 id="sample-3">
+  Sample
+  <a class="heading-link" href="#sample-3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// Original code with issues</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> ProcessUserInput(<span style="color:#66d9ef">string</span> username)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">using</span> (<span style="color:#66d9ef">var</span> connection = <span style="color:#66d9ef">new</span> SqlConnection(_connectionString))
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        connection.Open();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">string</span> query = <span style="color:#e6db74">&#34;SELECT * FROM Users WHERE Username = &#39;&#34;</span> + username + <span style="color:#e6db74">&#34;&#39;&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> command = <span style="color:#66d9ef">new</span> SqlCommand(query, connection);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> reader = command.ExecuteReader();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (reader.Read())
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Process user data</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Copilot review suggestion:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// This code has a SQL injection vulnerability. Consider using parameterized queries:</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> ProcessUserInput(<span style="color:#66d9ef">string</span> username)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">using</span> (<span style="color:#66d9ef">var</span> connection = <span style="color:#66d9ef">new</span> SqlConnection(_connectionString))
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        connection.Open();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">string</span> query = <span style="color:#e6db74">&#34;SELECT * FROM Users WHERE Username = @Username&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> command = <span style="color:#66d9ef">new</span> SqlCommand(query, connection);
+</span></span><span style="display:flex;"><span>        command.Parameters.AddWithValue(<span style="color:#e6db74">&#34;@Username&#34;</span>, username);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">using</span> (<span style="color:#66d9ef">var</span> reader = command.ExecuteReader())
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">while</span> (reader.Read())
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// Process user data</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This proactive review process helps catch issues early in the development cycle, reducing the time spent in formal code reviews.</p>
 <p>Read more about <a href="https://docs.github.com/en/copilot/github-copilot-code-review/using-github-copilot-code-review"  class="external-link" target="_blank" rel="noopener">Using GitHub Copilot code review</a>.</p>
 <h2 id="8-knowledge-bases-enterprise-feature">
   8. Knowledge Bases (Enterprise Feature)
@@ -435,7 +604,45 @@ GitHub Copilot has emerged as one of the leading AI-powered coding assistants, t
 <li><strong>API information</strong>: Include details about internal APIs and services</li>
 <li><strong>Onboarding materials</strong>: Help new team members understand company-specific code</li>
 </ul>
-<p>This feature ensures that Copilot&rsquo;s suggestions align with your organization&rsquo;s specific requirements and knowledge.</p>
+<h3 id="sample-4">
+  Sample
+  <a class="heading-link" href="#sample-4">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// Developer asks Copilot about the company&#39;s logging standards</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Copilot responds based on the knowledge base:</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Recommended implementation based on company standards:</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OrderService</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> ILogger&lt;OrderService&gt; _logger;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> OrderService(ILogger&lt;OrderService&gt; logger)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        _logger = logger;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task ProcessOrder(Order order)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span>
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            _logger.LogInformation(<span style="color:#e6db74">&#34;Processing order {OrderId} for customer {CustomerId}&#34;</span>, 
+</span></span><span style="display:flex;"><span>                order.Id, order.CustomerId);
+</span></span><span style="display:flex;"><span>                
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Process the order</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            _logger.LogInformation(<span style="color:#e6db74">&#34;Successfully processed order {OrderId}&#34;</span>, order.Id);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">catch</span> (Exception ex)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            _logger.LogError(ex, <span style="color:#e6db74">&#34;Failed to process order {OrderId}&#34;</span>, order.Id);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">throw</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This feature ensures that Copilot&rsquo;s suggestions align with your organization&rsquo;s specific requirements and knowledge.</p>
 <p>For more information, see <a href="https://docs.github.com/en/copilot/github-copilot-enterprise/copilot-knowledge-bases/managing-github-copilot-knowledge-bases"  class="external-link" target="_blank" rel="noopener">Managing Copilot knowledge bases</a>.</p>
 <h2 id="9-custom-instructions">
   9. Custom Instructions
@@ -465,7 +672,25 @@ GitHub Copilot has emerged as one of the leading AI-powered coding assistants, t
 <li><strong>Educational level</strong>: Adjust explanations based on expertise</li>
 <li><strong>Output format</strong>: Define how you want responses structured</li>
 </ul>
-<p>This personalization ensures that Copilot&rsquo;s assistance aligns precisely with your individual or team needs.</p>
+<h3 id="sample-instructions">
+  Sample Instructions
+  <a class="heading-link" href="#sample-instructions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<pre tabindex="0"><code>I prefer code that follows these guidelines:
+- Use C# 12 features when appropriate
+- Follow Microsoft&#39;s C# coding conventions
+- Use dependency injection with constructor injection
+- Use async/await for all I/O operations
+- Handle exceptions with appropriate try/catch blocks
+- Include XML documentation comments for public APIs
+- Use the repository pattern for data access
+- Follow Clean Architecture principles
+
+When explaining concepts, please reference relevant .NET documentation.
+</code></pre><p>This personalization ensures that Copilot&rsquo;s assistance aligns precisely with your individual or team needs.</p>
 <p>Check out <a href="https://docs.github.com/en/copilot/github-copilot-chat/using-github-copilot-chat#creating-custom-instructions-for-github-copilot-chat"  class="external-link" target="_blank" rel="noopener">Custom instructions for GitHub Copilot Chat</a>.</p>
 <h2 id="10-copilot-workspace">
   10. Copilot Workspace
@@ -496,7 +721,86 @@ GitHub Copilot has emerged as one of the leading AI-powered coding assistants, t
 <li><strong>Testing</strong>: Create and run tests to validate functionality</li>
 <li><strong>Execution</strong>: Run and see your code in action</li>
 </ul>
-<p>This task-centric experience represents a new paradigm in development environments, where natural language drives the entire software creation process.</p>
+<h3 id="sample-5">
+  Sample
+  <a class="heading-link" href="#sample-5">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// User prompt: &#34;Create a simple REST API for a todo list using ASP.NET Core&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Copilot Workspace might generate a complete project structure:</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// TodoController.cs</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">[ApiController]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">[Route(&#34;api/[controller]</span><span style="color:#e6db74">&#34;)]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TodoController</span> : ControllerBase
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> List&lt;TodoItem&gt; _items = <span style="color:#66d9ef">new</span>();
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">    
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">    [HttpGet]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> ActionResult&lt;IEnumerable&lt;TodoItem&gt;&gt; GetAll()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Ok(_items);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">    
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">    [HttpGet(&#34;{id}&#34;)]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> ActionResult&lt;TodoItem&gt; GetById(<span style="color:#66d9ef">int</span> id)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> item = _items.FirstOrDefault(x =&gt; x.Id == id);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (item == <span style="color:#66d9ef">null</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> NotFound();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Ok(item);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">    
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">    [HttpPost]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> ActionResult&lt;TodoItem&gt; Create(TodoItem item)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        item.Id = _items.Count &gt; <span style="color:#ae81ff">0</span> ? _items.Max(x =&gt; x.Id) + <span style="color:#ae81ff">1</span> : <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        _items.Add(item);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> CreatedAtAction(nameof(GetById), <span style="color:#66d9ef">new</span> { id = item.Id }, item);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">    
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">    [HttpPut(&#34;{id}&#34;)]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> IActionResult Update(<span style="color:#66d9ef">int</span> id, TodoItem item)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> existingItem = _items.FirstOrDefault(x =&gt; x.Id == id);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (existingItem == <span style="color:#66d9ef">null</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> NotFound();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        existingItem.Title = item.Title;
+</span></span><span style="display:flex;"><span>        existingItem.IsComplete = item.IsComplete;
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> NoContent();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">    
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">    [HttpDelete(&#34;{id}&#34;)]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> IActionResult Delete(<span style="color:#66d9ef">int</span> id)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> item = _items.FirstOrDefault(x =&gt; x.Id == id);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (item == <span style="color:#66d9ef">null</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> NotFound();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        _items.Remove(item);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> NoContent();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// TodoItem.cs</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TodoItem</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> Id { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> Title { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">bool</span> IsComplete { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This task-centric experience represents a new paradigm in development environments, where natural language drives the entire software creation process.</p>
 <p>Learn more from <a href="https://github.blog/news-insights/product-news/github-copilot-workspace/"  class="external-link" target="_blank" rel="noopener">GitHub Copilot Workspace announcement</a>.</p>
 <h2 id="11-copilot-extensions">
   11. Copilot Extensions
@@ -526,7 +830,35 @@ GitHub Copilot has emerged as one of the leading AI-powered coding assistants, t
 <li><strong>Extensibility</strong>: Build your own extensions to enhance Copilot&rsquo;s capabilities</li>
 <li><strong>Community sharing</strong>: Access extensions built by the wider developer community</li>
 </ul>
-<p>Extensions allow developers to customize and extend Copilot&rsquo;s functionality to suit their specific needs and toolchain.</p>
+<h3 id="sample-use-case">
+  Sample Use Case
+  <a class="heading-link" href="#sample-use-case">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// A developer might ask Copilot to use a custom extension:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// &#34;Use the Azure extension to create a new resource group and deploy my API&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Copilot could generate deployment code:</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">async</span> Task DeployToAzure()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> credentials = <span style="color:#66d9ef">new</span> DefaultAzureCredential();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> armClient = <span style="color:#66d9ef">new</span> ArmClient(credentials);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Create resource group</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> subscription = <span style="color:#66d9ef">await</span> armClient.GetDefaultSubscriptionAsync();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> resourceGroup = <span style="color:#66d9ef">await</span> subscription.GetResourceGroups()
+</span></span><span style="display:flex;"><span>        .CreateOrUpdateAsync(
+</span></span><span style="display:flex;"><span>            WaitUntil.Completed,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;MyApiResourceGroup&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">new</span> ResourceGroupData(<span style="color:#66d9ef">new</span> AzureLocation(<span style="color:#e6db74">&#34;eastus&#34;</span>)));
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    Console.WriteLine(<span style="color:#e6db74">$&#34;Created resource group: {resourceGroup.Data.Name}&#34;</span>);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Additional deployment code would follow</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Extensions allow developers to customize and extend Copilot&rsquo;s functionality to suit their specific needs and toolchain.</p>
 <p>For more information, see <a href="https://docs.github.com/en/copilot/copilot-extensions/building-github-copilot-extensions"  class="external-link" target="_blank" rel="noopener">About building Copilot Extensions</a>.</p>
 <h2 id="12-model-selection">
   12. Model Selection
@@ -555,7 +887,87 @@ GitHub Copilot has emerged as one of the leading AI-powered coding assistants, t
 <li><strong>Claude 3.5 Sonnet</strong>: Advanced capabilities for complex reasoning and explanation</li>
 <li><strong>Other specialized models</strong>: Different models optimized for specific tasks or languages</li>
 </ul>
-<p>The ability to select different models gives developers flexibility to choose the AI assistant that works best for their particular needs.</p>
+<h3 id="sample-use-case-1">
+  Sample Use Case
+  <a class="heading-link" href="#sample-use-case-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// When working on complex algorithms, you might switch to Claude 3.5 Sonnet:</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// User prompt: &#34;Implement a thread-safe caching mechanism with LRU eviction policy&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LruCache</span>&lt;TKey, TValue&gt;
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">int</span> _capacity;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> Dictionary&lt;TKey, LinkedListNode&lt;CacheItem&gt;&gt; _cacheMap;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> LinkedList&lt;CacheItem&gt; _lruList;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> SemaphoreSlim _lock = <span style="color:#66d9ef">new</span> SemaphoreSlim(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> LruCache(<span style="color:#66d9ef">int</span> capacity)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        _capacity = capacity;
+</span></span><span style="display:flex;"><span>        _cacheMap = <span style="color:#66d9ef">new</span> Dictionary&lt;TKey, LinkedListNode&lt;CacheItem&gt;&gt;(capacity);
+</span></span><span style="display:flex;"><span>        _lruList = <span style="color:#66d9ef">new</span> LinkedList&lt;CacheItem&gt;();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task&lt;TValue&gt; GetOrAddAsync(TKey key, Func&lt;TKey, Task&lt;TValue&gt;&gt; valueFactory)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">await</span> _lock.WaitAsync();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span>
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (_cacheMap.TryGetValue(key, <span style="color:#66d9ef">out</span> <span style="color:#66d9ef">var</span> node))
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// Move to front of list</span>
+</span></span><span style="display:flex;"><span>                _lruList.Remove(node);
+</span></span><span style="display:flex;"><span>                _lruList.AddFirst(node);
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> node.Value.Value;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Get value from factory</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">var</span> <span style="color:#66d9ef">value</span> = <span style="color:#66d9ef">await</span> valueFactory(key);
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Add to cache</span>
+</span></span><span style="display:flex;"><span>            AddToCache(key, <span style="color:#66d9ef">value</span>);
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">value</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">finally</span>
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            _lock.Release();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> AddToCache(TKey key, TValue <span style="color:#66d9ef">value</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// If we&#39;re at capacity, remove least recently used item</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (_cacheMap.Count &gt;= _capacity)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">var</span> lastNode = _lruList.Last;
+</span></span><span style="display:flex;"><span>            _cacheMap.Remove(lastNode.Value.Key);
+</span></span><span style="display:flex;"><span>            _lruList.RemoveLast();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Add new item</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> newNode = <span style="color:#66d9ef">new</span> LinkedListNode&lt;CacheItem&gt;(<span style="color:#66d9ef">new</span> CacheItem(key, <span style="color:#66d9ef">value</span>));
+</span></span><span style="display:flex;"><span>        _lruList.AddFirst(newNode);
+</span></span><span style="display:flex;"><span>        _cacheMap.Add(key, newNode);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CacheItem</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> CacheItem(TKey key, TValue <span style="color:#66d9ef">value</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            Key = key;
+</span></span><span style="display:flex;"><span>            Value = <span style="color:#66d9ef">value</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> TKey Key { <span style="color:#66d9ef">get</span>; }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> TValue Value { <span style="color:#66d9ef">get</span>; }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The ability to select different models gives developers flexibility to choose the AI assistant that works best for their particular needs.</p>
 <p>Learn more from <a href="https://github.blog/changelog/2024-12-18-announcing-github-copilot-free/"  class="external-link" target="_blank" rel="noopener">GitHub&rsquo;s announcement about model choice</a>.</p>
 <h2 id="13-copilot-text-completion">
   13. Copilot Text Completion
@@ -585,7 +997,41 @@ GitHub Copilot has emerged as one of the leading AI-powered coding assistants, t
 <li><strong>Comments</strong>: Help create meaningful code comments</li>
 <li><strong>Commit messages</strong>: Suggest descriptive commit messages based on changes</li>
 </ul>
-<p>This feature extends Copilot&rsquo;s assistance beyond code to help with the documentation aspects of software development.</p>
+<h3 id="sample-6">
+  Sample
+  <a class="heading-link" href="#sample-6">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<pre tabindex="0"><code>// User request: &#34;Write a PR description for my changes that add authentication to the API&#34;
+
+# Add JWT Authentication to API
+
+This PR implements JWT-based authentication for the API with the following changes:
+
+## Changes
+
+- Add `JwtBearerAuthentication` middleware to the ASP.NET Core pipeline
+- Create `AuthController` with login/register endpoints
+- Implement `JwtService` for token generation and validation
+- Add user credential storage and validation in `UserService`
+- Create authentication-related DTOs (LoginRequest, RegisterRequest, etc.)
+- Update Swagger configuration to support authorization header
+
+## How to Test
+
+1. Register a new user with POST to `/api/auth/register`
+2. Login with POST to `/api/auth/login` to receive a JWT token
+3. Use the token in the Authorization header for subsequent requests
+4. Verify protected endpoints return 401 without a valid token
+
+## Security Considerations
+
+- Passwords are hashed using BCrypt
+- Tokens expire after 1 hour
+- Refresh token functionality will be added in a future PR
+</code></pre><p>This feature extends Copilot&rsquo;s assistance beyond code to help with the documentation aspects of software development.</p>
 <p>For more details, see <a href="https://docs.github.com/en/copilot/about-github-copilot/github-copilot-features#copilot-text-completion-public-preview"  class="external-link" target="_blank" rel="noopener">Using Copilot text completion</a>.</p>
 <h2 id="14-github-copilot-skills-in-chat">
   14. GitHub Copilot Skills in Chat
@@ -616,7 +1062,45 @@ GitHub Copilot has emerged as one of the leading AI-powered coding assistants, t
 <li><strong>Document</strong>: Create documentation for your code</li>
 <li><strong>Optimize</strong>: Suggest performance improvements</li>
 </ul>
-<p>These skills focus Copilot&rsquo;s capabilities on specific development tasks, making it easier to get targeted assistance.</p>
+<h3 id="sample-7">
+  Sample
+  <a class="heading-link" href="#sample-7">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// Original complex LINQ query</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> result = customers
+</span></span><span style="display:flex;"><span>    .Where(c =&gt; c.IsActive &amp;&amp; c.Orders.Any(o =&gt; o.Status == OrderStatus.Pending))
+</span></span><span style="display:flex;"><span>    .SelectMany(c =&gt; c.Orders)
+</span></span><span style="display:flex;"><span>    .Where(o =&gt; o.TotalAmount &gt; <span style="color:#ae81ff">1000</span> &amp;&amp; o.Items.Count &gt; <span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>    .GroupBy(o =&gt; o.ShippingAddress.Country)
+</span></span><span style="display:flex;"><span>    .Select(g =&gt; <span style="color:#66d9ef">new</span> CountrySalesReport {
+</span></span><span style="display:flex;"><span>        Country = g.Key,
+</span></span><span style="display:flex;"><span>        TotalOrders = g.Count(),
+</span></span><span style="display:flex;"><span>        TotalAmount = g.Sum(o =&gt; o.TotalAmount),
+</span></span><span style="display:flex;"><span>        AverageOrderValue = g.Average(o =&gt; o.TotalAmount)
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>    .OrderByDescending(r =&gt; r.TotalAmount)
+</span></span><span style="display:flex;"><span>    .ToList();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Using Copilot&#39;s Explain skill might produce:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">This LINQ query:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">1. Starts with a collection of customers
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">2. Filters for active customers who have at least one pending order
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">3. Gets all orders from these customers (using SelectMany)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">4. Filters for orders with total amount over $1000 and more than 5 items
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">5. Groups these orders by the country in the shipping address
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">6. Creates a CountrySalesReport object for each country with:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   - The country name
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   - Total order count in that country
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   - Sum of all order amounts
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   - Average order value
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">7. Sorts the results by total amount (highest first)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">8. Converts the results to a List
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">*/</span>
+</span></span></code></pre></div><p>These skills focus Copilot&rsquo;s capabilities on specific development tasks, making it easier to get targeted assistance.</p>
 <p>Check out <a href="https://docs.github.com/en/copilot/github-copilot-chat/using-github-copilot-chat-skills"  class="external-link" target="_blank" rel="noopener">Using GitHub Copilot Chat skills</a> for more information.</p>
 <h2 id="15-copilot-free-tier">
   15. Copilot Free Tier
@@ -646,7 +1130,88 @@ GitHub Copilot has emerged as one of the leading AI-powered coding assistants, t
 <li><strong>Access to model selection</strong>: Choose from available models including Claude 3.5 Sonnet</li>
 <li><strong>Copilot Extensions support</strong>: Use third-party extensions to enhance functionality</li>
 </ul>
-<p>This free tier allows developers to experience the benefits of AI-assisted coding without a subscription.</p>
+<h3 id="sample-8">
+  Sample
+  <a class="heading-link" href="#sample-8">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// Even with the free tier, you can get significant help with complex tasks:</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// User prompt: &#34;Create a basic WebSocket client in C#&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> System;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> System.Net.WebSockets;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> System.Text;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> System.Threading;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> System.Threading.Tasks;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WebSocketClient</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> ClientWebSocket _client;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task ConnectAsync(<span style="color:#66d9ef">string</span> url)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        _client = <span style="color:#66d9ef">new</span> ClientWebSocket();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">await</span> _client.ConnectAsync(<span style="color:#66d9ef">new</span> Uri(url), CancellationToken.None);
+</span></span><span style="display:flex;"><span>        Console.WriteLine(<span style="color:#e6db74">$&#34;Connected to {url}&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task SendMessageAsync(<span style="color:#66d9ef">string</span> message)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (_client.State != WebSocketState.Open)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> InvalidOperationException(<span style="color:#e6db74">&#34;Connection is not open&#34;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> messageBytes = Encoding.UTF8.GetBytes(message);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">await</span> _client.SendAsync(
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">new</span> ArraySegment&lt;<span style="color:#66d9ef">byte</span>&gt;(messageBytes),
+</span></span><span style="display:flex;"><span>            WebSocketMessageType.Text,
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>            CancellationToken.None);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task ReceiveMessagesAsync(Action&lt;<span style="color:#66d9ef">string</span>&gt; messageHandler, CancellationToken cancellationToken)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> buffer = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">byte</span>[<span style="color:#ae81ff">1024</span>];
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (_client.State == WebSocketState.Open &amp;&amp; !cancellationToken.IsCancellationRequested)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">var</span> result = <span style="color:#66d9ef">await</span> _client.ReceiveAsync(
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">new</span> ArraySegment&lt;<span style="color:#66d9ef">byte</span>&gt;(buffer),
+</span></span><span style="display:flex;"><span>                cancellationToken);
+</span></span><span style="display:flex;"><span>                
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (result.MessageType == WebSocketMessageType.Close)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">await</span> _client.CloseAsync(
+</span></span><span style="display:flex;"><span>                    WebSocketCloseStatus.NormalClosure,
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;Closing&#34;</span>,
+</span></span><span style="display:flex;"><span>                    CancellationToken.None);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">var</span> message = Encoding.UTF8.GetString(buffer, <span style="color:#ae81ff">0</span>, result.Count);
+</span></span><span style="display:flex;"><span>                messageHandler(message);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task DisconnectAsync()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (_client.State == WebSocketState.Open)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">await</span> _client.CloseAsync(
+</span></span><span style="display:flex;"><span>                WebSocketCloseStatus.NormalClosure,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;Closing&#34;</span>,
+</span></span><span style="display:flex;"><span>                CancellationToken.None);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        _client.Dispose();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This free tier allows developers to experience the benefits of AI-assisted coding without a subscription.</p>
 <p>Learn more from <a href="https://github.blog/changelog/2024-12-18-announcing-github-copilot-free/"  class="external-link" target="_blank" rel="noopener">GitHub&rsquo;s announcement of Copilot Free</a>.</p>
 <h2 id="conclusion">
   Conclusion
@@ -686,7 +1251,7 @@ GitHub Copilot has emerged as one of the leading AI-powered coding assistants, t
     ©
     
     2025
-    
+     Morteza Azizi 
     ·
     
     Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.

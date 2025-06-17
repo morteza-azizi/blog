@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Design Patterns on Morteza Azizi</title>
+    <link>http://localhost:1313/tags/design-patterns/</link>
+    <description>Recent content in Design Patterns on Morteza Azizi</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 17 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/design-patterns/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Understanding the Wire Tap Pattern in Messaging Systems</title>
+      <link>http://localhost:1313/posts/understanding-wire-tap-pattern-in-messaging-systems/</link>
+      <pubDate>Mon, 17 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/understanding-wire-tap-pattern-in-messaging-systems/</guid>
+      <description>&lt;h1 id=&#34;understanding-the-wire-tap-pattern-in-messaging-systems&#34;&gt;&#xD;&#xA;  Understanding the Wire Tap Pattern in Messaging Systems&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#understanding-the-wire-tap-pattern-in-messaging-systems&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;In enterprise integration and messaging systems, the ability to monitor and analyze message flows without disrupting the main business processes is crucial. The Wire Tap pattern, as described in the seminal work &amp;ldquo;Enterprise Integration Patterns&amp;rdquo; by Gregor Hohpe and Bobby Woolf, provides an elegant solution to this challenge. Let&amp;rsquo;s explore this pattern in detail.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

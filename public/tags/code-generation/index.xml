@@ -2,18 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Code Generation on Morteza Azizi</title>
-    <link>https://www.mortezaazizi.com/tags/code-generation/</link>
+    <link>http://localhost:1313/tags/code-generation/</link>
     <description>Recent content in Code Generation on Morteza Azizi</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 26 Mar 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://www.mortezaazizi.com/tags/code-generation/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/code-generation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>10 Essential Cursor AI Features to Supercharge Your Development</title>
+      <link>http://localhost:1313/posts/15-essential-cursor-ai-features-to-supercharge-your-development/</link>
+      <pubDate>Tue, 26 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/15-essential-cursor-ai-features-to-supercharge-your-development/</guid>
+      <description>&lt;h1 id=&#34;10-essential-cursor-ai-features-to-supercharge-your-development&#34;&gt;&#xD;&#xA;  10 Essential Cursor AI Features to Supercharge Your Development&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#10-essential-cursor-ai-features-to-supercharge-your-development&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;Cursor AI has emerged as a groundbreaking AI-powered code editor that&amp;rsquo;s transforming how developers write and maintain code. Built as a fork of Visual Studio Code, &lt;a href=&#34;https://www.cursor.com/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cursor&lt;/a&gt; combines the familiar IDE experience with advanced AI capabilities to help developers code faster and solve problems more efficiently. In this article, we&amp;rsquo;ll explore the key features that make Cursor AI an essential tool for modern development.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>15 Essential AI Coding Assistant Features That Boost Developer Productivity</title>
-      <link>https://www.mortezaazizi.com/posts/15-essential-ai-coding-assistant-features-that-boost-developer-productivity/</link>
+      <link>http://localhost:1313/posts/15-essential-ai-coding-assistant-features-that-boost-developer-productivity/</link>
       <pubDate>Tue, 26 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>https://www.mortezaazizi.com/posts/15-essential-ai-coding-assistant-features-that-boost-developer-productivity/</guid>
+      <guid>http://localhost:1313/posts/15-essential-ai-coding-assistant-features-that-boost-developer-productivity/</guid>
       <description>&lt;h1 id=&#34;15-essential-ai-coding-assistant-features-that-boost-developer-productivity&#34;&gt;&#xD;&#xA;  15 Essential AI Coding Assistant Features That Boost Developer Productivity&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#15-essential-ai-coding-assistant-features-that-boost-developer-productivity&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;AI-powered coding tools—such as &lt;a href=&#34;https://copilot.github.com/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub Copilot&lt;/a&gt; and &lt;a href=&#34;https://cursor.sh/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cursor AI&lt;/a&gt;— are revolutionizing the development workflow by offering intelligent assistance for writing, debugging, and optimizing code. In this article, we&amp;rsquo;ll explore the main features provided by these tools, using Golang examples to demonstrate their practical applications.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Modern developers face increasing pressure to deliver high-quality code faster.&lt;/strong&gt; AI coding assistants have emerged as powerful allies in this challenge, offering features that automate repetitive tasks, suggest improvements, and catch errors before they cause problems. Let&amp;rsquo;s explore the 15 most impactful features that are changing how developers work.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>15 Essential GitHub Copilot Features to Enhance Your Coding Workflow</title>
+      <link>http://localhost:1313/posts/15-essential-github-copilot-features-to-enhance-your-coding-workflow/</link>
+      <pubDate>Tue, 26 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/15-essential-github-copilot-features-to-enhance-your-coding-workflow/</guid>
+      <description>&lt;h1 id=&#34;15-essential-github-copilot-features-to-enhance-your-coding-workflow&#34;&gt;&#xD;&#xA;  15 Essential GitHub Copilot Features to Enhance Your Coding Workflow&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#15-essential-github-copilot-features-to-enhance-your-coding-workflow&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;GitHub Copilot has emerged as one of the leading AI-powered coding assistants, transforming how developers approach programming tasks. As &lt;a href=&#34;https://github.com/features/copilot&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub&amp;rsquo;s official AI pair programmer&lt;/a&gt;, it offers a range of features designed to boost productivity and streamline the development process. In this article, we&amp;rsquo;ll explore the key features that make GitHub Copilot an essential tool for modern developers.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

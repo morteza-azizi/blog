@@ -2,42 +2,96 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.mortezaazizi.com/about/</loc>
-    <lastmod>2025-03-15T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/about/</loc>
+    <lastmod>2025-03-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.mortezaazizi.com/</loc>
-    <lastmod>2025-03-15T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2025-03-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.mortezaazizi.com/posts/15-essential-ai-coding-assistant-features-that-boost-developer-productivity/</loc>
+    <loc>http://localhost:1313/tags/auditing/</loc>
+    <lastmod>2024-06-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/design-patterns/</loc>
+    <lastmod>2024-06-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/enterprise-integration/</loc>
+    <lastmod>2024-06-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/messaging/</loc>
+    <lastmod>2024-06-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/monitoring/</loc>
+    <lastmod>2024-06-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2024-06-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/system-architecture/</loc>
+    <lastmod>2024-06-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2024-06-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/understanding-wire-tap-pattern-in-messaging-systems/</loc>
+    <lastmod>2024-06-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/developer-tools/</loc>
+    <lastmod>2024-03-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/devops/</loc>
+    <lastmod>2024-03-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/diagrams/</loc>
+    <lastmod>2024-03-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/documentation/</loc>
+    <lastmod>2024-03-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/markdown/</loc>
+    <lastmod>2024-03-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/mermaid/</loc>
+    <lastmod>2024-03-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/version-control/</loc>
+    <lastmod>2024-03-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/why-use-mermaid-for-diagrams/</loc>
+    <lastmod>2024-03-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/15-essential-cursor-ai-features-to-supercharge-your-development/</loc>
     <lastmod>2024-03-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.mortezaazizi.com/tags/ai-coding/</loc>
+    <loc>http://localhost:1313/posts/15-essential-ai-coding-assistant-features-that-boost-developer-productivity/</loc>
     <lastmod>2024-03-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.mortezaazizi.com/tags/code-generation/</loc>
+    <loc>http://localhost:1313/posts/15-essential-github-copilot-features-to-enhance-your-coding-workflow/</loc>
     <lastmod>2024-03-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.mortezaazizi.com/tags/cursor-ai/</loc>
+    <loc>http://localhost:1313/tags/ai-coding/</loc>
     <lastmod>2024-03-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.mortezaazizi.com/tags/developer-tools/</loc>
+    <loc>http://localhost:1313/tags/code-generation/</loc>
     <lastmod>2024-03-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.mortezaazizi.com/tags/github-copilot/</loc>
+    <loc>http://localhost:1313/posts/comparing-github-copilot-vs-cursor-ai-performance-analysis/</loc>
     <lastmod>2024-03-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.mortezaazizi.com/posts/</loc>
+    <loc>http://localhost:1313/tags/comparison/</loc>
     <lastmod>2024-03-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.mortezaazizi.com/tags/productivity/</loc>
+    <loc>http://localhost:1313/tags/cursor-ai/</loc>
     <lastmod>2024-03-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.mortezaazizi.com/tags/programming/</loc>
+    <loc>http://localhost:1313/tags/github-copilot/</loc>
     <lastmod>2024-03-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.mortezaazizi.com/tags/</loc>
+    <loc>http://localhost:1313/tags/productivity/</loc>
     <lastmod>2024-03-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.mortezaazizi.com/categories/</loc>
+    <loc>http://localhost:1313/tags/programming/</loc>
+    <lastmod>2024-03-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/</loc>
   </url>
 </urlset>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Diagrams on Morteza Azizi</title>
+    <link>http://localhost:1313/tags/diagrams/</link>
+    <description>Recent content in Diagrams on Morteza Azizi</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 28 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/diagrams/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why Use Mermaid for Diagrams: Benefits for Developers and Technical Teams</title>
+      <link>http://localhost:1313/posts/why-use-mermaid-for-diagrams/</link>
+      <pubDate>Thu, 28 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/why-use-mermaid-for-diagrams/</guid>
+      <description>&lt;h1 id=&#34;why-use-mermaid-for-diagrams-benefits-for-developers-and-technical-teams&#34;&gt;&#xD;&#xA;  Why Use Mermaid for Diagrams: Benefits for Developers and Technical Teams&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#why-use-mermaid-for-diagrams-benefits-for-developers-and-technical-teams&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;In the world of software development, clear communication of complex systems is crucial. Traditional diagramming tools often create friction in development workflows—they&amp;rsquo;re separate from your code, require special software, and create binary files that don&amp;rsquo;t work well with version control. &lt;a href=&#34;https://mermaid.js.org/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Mermaid&lt;/a&gt; offers a compelling alternative by allowing you to create diagrams using a simple text-based syntax. In this article, we&amp;rsquo;ll explore why Mermaid has become an essential tool for modern development teams.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

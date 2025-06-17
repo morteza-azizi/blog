@@ -52,13 +52,13 @@ This approach preserves message integrity while maintaining system performance.
 
 Here's a diagram showing how the Wire Tap pattern works:
 
-:::mermaid
+{{< mermaid >}}
 flowchart LR
     A[Sender] --> B[Original Channel]
     B --> C[Receiver]
     B -. Wire Tap .-> D[Tap Channel]
     D --> E[Tap Receiver / Monitoring System]
-::::
+{{< /mermaid >}}
 
 ## Key Considerations
 

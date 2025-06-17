@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Comparison on Morteza Azizi</title>
+    <link>http://localhost:1313/tags/comparison/</link>
+    <description>Recent content in Comparison on Morteza Azizi</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 26 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/comparison/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Comparing GitHub Copilot vs Cursor AI: Performance Analysis</title>
+      <link>http://localhost:1313/posts/comparing-github-copilot-vs-cursor-ai-performance-analysis/</link>
+      <pubDate>Tue, 26 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/comparing-github-copilot-vs-cursor-ai-performance-analysis/</guid>
+      <description>&lt;h1 id=&#34;comparing-github-copilot-vs-cursor-ai-performance-analysis&#34;&gt;&#xD;&#xA;  Comparing GitHub Copilot vs Cursor AI: Performance Analysis&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#comparing-github-copilot-vs-cursor-ai-performance-analysis&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;I&amp;rsquo;d like to compare these two popular AI coding tools using objective factors and real-world development scenarios. In this upcoming project, I&amp;rsquo;ll systematically evaluate each tool across multiple dimensions, documenting my methodology, observations, and results.&lt;/p&gt;&#xA;&lt;p&gt;My plan is to analyze each factor one by one, creating a GitHub repository that will contain all test code, measurement methods, and detailed findings. I&amp;rsquo;ll record my interactions with both tools to provide transparent evidence for my conclusions, ensuring a fair and comprehensive comparison that will be valuable for developers trying to choose between these assistants.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
