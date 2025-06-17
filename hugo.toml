@@ -2,13 +2,37 @@ baseURL = "https://www.mortezaazizi.com/"
 languageCode = 'en-us'
 title = 'Morteza Azizi'
 theme = 'hugo-coder'
+ignoreLogs = ['warning-goldmark-raw-html']
 
 [params]
+    # Theme options
     defaultTheme = "auto"
     ShowBreadCrumbs = true
     ShowToc = true
     mainSections = ["posts"]
-    customCSS = ["css/custom.css"]
+    
+    # Profile information
+    author = "Morteza Azizi"
+    info = "Design and Building Scalable Systems"
+    description = "Passionate about building scalable systems"
+    avatarURL = "/img/avatar.jpg"
+    
+    # Social links
+    [[params.social]]
+        name = "GitHub"
+        url = "https://github.com/morteza-azizi"
+        icon = "fa-brands fa-github"
+        weight = 1
+    [[params.social]]
+        name = "LinkedIn"
+        url = "https://www.linkedin.com/in/morteza-azizi-6b974a39/"
+        icon = "fa-brands fa-linkedin"
+        weight = 2
+    [[params.social]]
+        name = "X"
+        url = "https://x.com/MortezaAzizi"
+        icon = "fa-brands fa-x-twitter"
+        weight = 3
 
 [menu]
     [[menu.main]]
