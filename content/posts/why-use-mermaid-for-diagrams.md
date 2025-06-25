@@ -1,6 +1,6 @@
 ---
 title: "Why Use Mermaid for Diagrams: Benefits for Developers and Technical Teams"
-date: 2024-03-28
+date: 2025-03-28
 draft: false
 tags: ["Mermaid", "diagrams", "documentation", "markdown", "developer tools", "version control", "DevOps"]
 ---

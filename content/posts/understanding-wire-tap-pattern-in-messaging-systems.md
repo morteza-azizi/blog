@@ -1,6 +1,6 @@
 ---
 title: "Understanding the Wire Tap Pattern in Messaging Systems"
-date: 2024-06-17
+date: 2025-06-17
 draft: false
 tags: ["messaging", "enterprise integration", "design patterns", "system architecture", "monitoring", "auditing"]
 ---
@@ -26,9 +26,9 @@ The Wire Tap pattern serves several important purposes in enterprise systems:
 - Track message flows for diagnostic purposes
 
 ### 2. Testing and Debugging
-- Capture traffic for troubleshooting, and roviding data for problem resolution
-- Analyze message patterns, and Identifying unusual patterns
-- Verify system behavior, and Ensures correct message delivery
+- Capture traffic for troubleshooting, and providing data for problem resolution
+- Analyze message patterns, and identifying unusual patterns
+- Verify system behavior, and ensuring correct message delivery
 
 ### 3. Triggering Side Effects
 - Enable parallel processing

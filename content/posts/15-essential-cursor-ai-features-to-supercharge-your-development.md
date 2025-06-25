@@ -1,6 +1,6 @@
 ---
 title: "10 Essential Cursor AI Features to Supercharge Your Development"
-date: 2024-03-26
+date: 2025-03-26
 draft: false
 tags: ["Cursor AI", "AI coding", "developer tools", "productivity", "code generation", "programming"]
 ---
