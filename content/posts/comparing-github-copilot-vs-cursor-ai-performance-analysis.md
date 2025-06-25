@@ -1,6 +1,6 @@
 ---
 title: "Comparing GitHub Copilot vs Cursor AI: Performance Analysis"
-date: 2024-03-26
+date: 2025-03-26
 draft: false
 tags: ["GitHub Copilot", "Cursor AI", "AI coding", "developer tools", "productivity", "comparison"]
 ---
