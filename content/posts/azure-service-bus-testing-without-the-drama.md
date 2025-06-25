@@ -1,6 +1,6 @@
 ---
 title: "Azure Service Bus Testing Without the Drama"
-date: 2025-01-25
+date: 2025-01-27
 draft: false
 tags: ["azure", "service bus", "testing", "testcontainers", "azure functions", "integration testing", "local development"]
 ---
