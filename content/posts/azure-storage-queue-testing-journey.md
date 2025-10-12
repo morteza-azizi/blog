@@ -7,7 +7,7 @@ tags: ["azure", "storage queue", "testing", "testcontainers", "azure functions",
 
 # From Service Bus to Storage Queue: A Testing Journey
 
-After successfully implementing testcontainers for Azure Service Bus (which I wrote about in my [previous post](azure-service-bus-testing-without-the-drama.md)), I found myself working on a new solution that needed Azure Storage Queue instead. 
+After successfully implementing testcontainers for Azure Service Bus (which I wrote about in my [previous post](/posts/azure-service-bus-testing-without-the-drama/)), I found myself working on a new solution that needed Azure Storage Queue instead. 
 
 Naturally, I got curious - could I apply the same testing approach? Turns out, yes! But the journey taught me some interesting things about the differences between these two Azure messaging services.
 
