@@ -96,7 +96,7 @@ flowchart TB
   LEDGER --> EXP[Exporter\ngenerate Hugo content]
   EXP --> HUGO[Hugo build]
   HUGO --> HOST[Static hosting / CDN\nwineinquiry.com]
-{{< mermaid >}}
+{{< /mermaid >}}
 
 This architecture is intentionally boring:
 
