@@ -1,5 +1,5 @@
 +++
-date = '2026-01-08'
+date = '2026-01-14'
 draft = false
 title = 'From 6,000+ Vivino Reviews to a Public Wine Library: Building Wine Inquiry with a Static Site + a Toolchain'
 tags = ['wine', 'static-site', 'hugo', 'software-architecture', 'pipeline', 'content-platform', 'data-migration']
@@ -7,7 +7,7 @@ tags = ['wine', 'static-site', 'hugo', 'software-architecture', 'pipeline', 'con
 
 # From 6,000+ Vivino Reviews to a Public Wine Library: Building Wine Inquiry with a Static Site + a Toolchain
 
-For the last ~15 years, wine has been one of my main passions. I've tasted a lot, learned a lot, and—most importantly—written down what I actually thought while drinking.
+For the last ~15 years, wine has been one of my main passions. I've tasted a lot, learned a lot, and—most importantly written down what I actually thought while drinking.
 
 Over time, those notes grew into ~6,000 reviews inside Vivino.
 
@@ -15,9 +15,9 @@ And that's where a problem started:
 
 My reviews were useful, but they were trapped in an app.
 
-Browsing them the way I wanted (by region, grape, producer, my verdict) wasn't great.
+Vivino was evolving into a more commercial platform focused on ordering, sales, ratings, and marketing. I wanted to write detailed tasting notes and reviews, but Vivino's direction wasn't aligned with that enthusiasm.
 
-Sharing a clean, consistent page with my notes and rating wasn't great either.
+I'd also been rejected by wine journals and publications when I tried to get involved and contribute. So I decided to build my own small library—a starting platform where my passion for wine reviews and tasting notes could live on my terms.
 
 And I didn't want years of work to live behind someone else's product decisions.
 
@@ -147,7 +147,9 @@ Because my photos weren't named in a useful way, I built a UI that lets me:
 
 - search/select a wine review
 - paste/select the correct Google Drive image
-- save that association into the ledger
+- add contextual data like where I bought it, where I tasted it, if it was a gift, and other personal details
+- save all associations into the ledger
+
 
 This turned a nightmare ("rename thousands of images") into a manageable workflow.
 
@@ -178,6 +180,8 @@ If it's public content, treat images like a real asset pipeline, not a "personal
 
 Long-term I'll likely move images to a proper object store/CDN (S3/R2 style), but the immediate fix was: no auth walls.
 
+**Current status:** Fully fixed - all images now publish with proper permissions and stable URLs.
+
 ### Issue 2: Tiny data formatting bugs destroy trust
 
 I hit bugs like:
@@ -189,13 +193,6 @@ I hit bugs like:
 **Lesson:**
 The exporter must enforce display rules.
 You cannot rely on "data is mostly consistent."
-
-### Issue 3: UX bugs matter more than fancy features
-
-Example: showing "No wines found" while wines were visible.
-
-**Lesson:**
-One visible glitch costs more credibility than ten missing features.
 
 ## How I think about the site now
 
