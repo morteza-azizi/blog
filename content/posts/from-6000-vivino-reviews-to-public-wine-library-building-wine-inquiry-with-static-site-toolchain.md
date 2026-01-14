@@ -85,7 +85,7 @@ Hugo became the publishing engine, and I built a set of tools around it.
 
 ### High-level architecture
 
-```mermaid
+{{< mermaid >}}
 flowchart TB
   CSV[Vivino export (CSV)] --> IMP[Importer\nnormalize + map fields]
   IMP --> LEDGER[(JSON Ledger\nprogress + mappings)]
@@ -96,7 +96,7 @@ flowchart TB
   LEDGER --> EXP[Exporter\ngenerate Hugo content]
   EXP --> HUGO[Hugo build]
   HUGO --> HOST[Static hosting / CDN\nwineinquiry.com]
-```
+{{< mermaid >}}
 
 This architecture is intentionally boring:
 
