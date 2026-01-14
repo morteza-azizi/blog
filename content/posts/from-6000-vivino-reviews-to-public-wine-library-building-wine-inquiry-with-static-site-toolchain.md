@@ -87,15 +87,15 @@ Hugo became the publishing engine, and I built a set of tools around it.
 
 {{< mermaid >}}
 flowchart TB
-  CSV[Vivino export (CSV)] --> IMP[Importer\nnormalize + map fields]
-  IMP --> LEDGER[(JSON Ledger\nprogress + mappings)]
-  LEDGER --> ENR[Enricher UI\nassign label images]
+  CSV[Vivino export CSV] --> IMP[Importer<br>normalize + map fields]
+  IMP --> LEDGER[(JSON Ledger<br>progress + mappings)]
+  LEDGER --> ENR[Enricher UI<br>assign label images]
   ENR --> LEDGER
-  LEDGER --> ORG[Organizer\nfetch/resize/publish images]
+  LEDGER --> ORG[Organizer<br>fetch/resize/publish images]
   ORG --> LEDGER
-  LEDGER --> EXP[Exporter\ngenerate Hugo content]
+  LEDGER --> EXP[Exporter<br>generate Hugo content]
   EXP --> HUGO[Hugo build]
-  HUGO --> HOST[Static hosting / CDN\nwineinquiry.com]
+  HUGO --> HOST[Static hosting / CDN<br>wineinquiry.com]
 {{< /mermaid >}}
 
 This architecture is intentionally boring:
