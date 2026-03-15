@@ -1,26 +1,24 @@
 +++
 date = '2026-03-15'
 draft = false
-title = 'A Hard Terraform Lesson: When Adding count Tried to Destroy My Production Resource'
+title = 'A Hard Terraform Lesson: When a Terraform Refactor Tried to Destroy Production'
 tags = ['terraform', 'azure', 'infrastructure', 'devops', 'container-registry', 'cost-optimization']
 +++
 
-# A Hard Terraform Lesson: When Adding count Tried to Destroy My Production Resource
+# A Hard Terraform Lesson: When a Terraform Refactor Tried to Destroy Production
 
-While working on our infrastructure, I proposed a cost optimization around Azure Container Registry (ACR).
+While working on our infrastructure, I proposed a cost optimization around Azure Container Registry (ACR). The decision was a classic architectural trade-off: **cost vs. isolation**.
 
-Most of our resources—storage, networking, compute—are deployed to all four environments (DEV, ACC, TEST, and Production). ACR was the exception. Running a dedicated registry for every environment did not make much sense. The cost was unnecessary, and lower environments could safely share one.
+On one side: running a dedicated registry for every environment (DEV, ACC, TEST, Production) was unnecessary spend. Lower environments could safely share one. On the other: production needed isolation—its own registry, its own images, no risk of cross-environment bleed.
 
-So I recommended the following approach:
+Most of our resources—storage, networking, compute—are deployed to all four environments. ACR was the exception. We chose a hybrid model:
 
 - **DEV, ACC, and TEST** → share one registry (e.g. in ACC)
 - **Production** → keep a dedicated registry
 
-In the end: one prod-specific ACR, one shared non-prod ACR.
+In the end: one prod-specific ACR, one shared non-prod ACR. The architecture was clear. The Terraform implementation, less so.
 
-From an architectural perspective, this was a simple and sensible improvement.
-
-From a Terraform perspective, it turned into a tricky lesson.
+Infrastructure evolves. That means you must design for safe refactoring—and protect production before you change anything. This post is about both.
 
 ## The Refactor
 
@@ -75,7 +73,7 @@ In some cases, recreating infrastructure is acceptable. But the container regist
 - broken CI/CD pipelines
 - disruption across environments
 
-I was protected—that is exactly why I had added the lifecycle block in the first place. But what caused Terraform to propose the destroy?
+I was protected—because the lifecycle block would have refused the apply. Terraform could still propose the destroy in the plan, but the resource could not actually be removed. That is exactly why I had added it in the first place. But what caused Terraform to propose the destroy?
 
 ## Why Terraform Planned to Destroy the Resource
 
@@ -98,7 +96,24 @@ Even though there is still only one resource, Terraform now treats it as an inde
 - **OLD ADDRESS:** `azurerm_container_registry.acr`
 - **NEW ADDRESS:** `azurerm_container_registry.acr[0]`
 
-So Terraform assumed the old resource disappeared and a new one should be created—hence the destroy and recreate plan.
+{{< mermaid >}}
+flowchart LR
+    subgraph Before["Before refactor (aligned)"]
+        direction TB
+        C1["Config: acr"] --> S1["State: acr"]
+        S1 --> A1["Azure ACR"]
+    end
+    subgraph After["After count - mismatch"]
+        direction TB
+        C2["Config: acr[0]"]
+        S2["State: acr"]
+        A2["Azure ACR"]
+        C2 -.->|mismatch| S2
+        S2 --> A2
+    end
+{{< /mermaid >}}
+
+Config says acr[0], State has acr. Terraform: old address gone, new address needed — destroy + create. Terraform assumed the old resource disappeared and a new one should be created—hence the destroy and recreate plan.
 
 ## The Solution: Migrating the Terraform State
 
@@ -112,9 +127,7 @@ terraform state mv \
   azurerm_container_registry.acr[0]
 ```
 
-This command does not change the infrastructure.
-
-It only updates the Terraform state so Terraform understands that the existing resource now belongs to the new address.
+This command does not change the infrastructure. It only updates Terraform's understanding of which real resource belongs to which address.
 
 After migrating the state, running `terraform plan` again showed no destructive changes.
 
@@ -154,7 +167,11 @@ For production infrastructure you never want to lose by accident, that habit pay
 
 ## Lessons Learned
 
-This experience reinforced several important Terraform lessons.
+This experience reinforced several important Terraform lessons—and one architectural one.
+
+**Design for safe refactoring from the start**
+
+Infrastructure evolves. If you add lifecycle protection and state-migration habits before you need them, refactors become less risky. Treat "protecting production" as part of the design, not an afterthought.
 
 **Refactoring Terraform can change resource identity**
 
@@ -188,10 +205,8 @@ I had it on the ACR before this refactor. When the bad plan appeared, that block
 
 ## Final Thought
 
-Terraform is extremely powerful, but it is also very literal.
+Terraform is extremely powerful, but it is also very literal. A small configuration refactor can unintentionally change how Terraform identifies infrastructure resources. When that happens, Terraform may attempt to destroy and recreate resources that should remain untouched.
 
-A small configuration refactor can unintentionally change how Terraform identifies infrastructure resources. When that happens, Terraform may attempt to destroy and recreate resources that should remain untouched.
+Understanding the relationship between configuration, state, and resource addresses is essential when evolving infrastructure that supports production systems. So is a mindset: **design infra so it can be refactored safely**. That means lifecycle blocks on critical resources, state migration instead of blind apply, and treating IaC not just as "infrastructure as code", but as infrastructure that protects production by default.
 
-Understanding the relationship between configuration, state, and resource addresses is essential when evolving infrastructure that supports production systems.
-
-Sometimes the hardest Terraform lessons are not about cloud services or providers — but about how Terraform thinks about infrastructure identity.
+Sometimes the hardest Terraform lessons are not about cloud services or providers—but about how Terraform thinks about infrastructure identity, and how you design for change.
