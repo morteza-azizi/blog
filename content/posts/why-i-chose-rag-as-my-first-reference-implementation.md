@@ -1,6 +1,6 @@
 ---
 title: "Why I Chose RAG as My First Reference Implementation"
-date: 2026-08-02
+date: 2026-08-03
 draft: false
 tags: ["RAG", "architecture", "engineering", "architecture through engineering", "series", "AI"]
 ---
@@ -12,8 +12,6 @@ tags: ["RAG", "architecture", "engineering", "architecture through engineering",
 ---
 
 ## The Obvious Question
-
-A## The Obvious Question
 
 After publishing the manifesto, one question appeared almost immediately.
 
@@ -171,7 +169,7 @@ The prototype and the platform are not the same thing.
 
 The gap between them is where architecture starts to matter.
 
-**Observability.** When a traditional service returns the wrong answer, you can usually trace why. When a RAG system returns a wrong answer that still sounds confident, tracing why is a genuinely hard, still-evolving problem. It raises the same ownership question as the story in Part 0: when the answer is wrong, whose fault is it—the retrieval, the source data, or the model? Someone still has to own that boundary, even when the failure is fuzzier than a rejected message.
+**Observability.** When a traditional service returns the wrong answer, you can usually trace why. When a RAG system returns a wrong answer that still sounds confident, tracing why is a genuinely hard, still-evolving problem. It raises the same ownership question as the story in Part 0: when the answer is wrong, whose fault is it — the retrieval, the source data, or the model? Someone still has to own that boundary, even when the failure is fuzzier than a rejected message.
 
 **The local-to-cloud path.** A RAG prototype is trivial to run on a single machine. Turning it into something reliable, observable, secure, and cloud-native is a much longer, much more interesting road.
 
