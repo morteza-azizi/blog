@@ -320,23 +320,19 @@ Consumer 2 → 4
 
 It was tempting to think:
 
-> "Okay, it is round-robin."
+> *"Okay, it is round-robin."*
 
-So I ran it again.
+But that conclusion would be too strong.
 
-The result was very different.
+The important thing is that we should not assume a particular distribution pattern between consumers.
 
-One consumer processed **17 messages**, while the other processed only **3**.
+We might see messages appear to alternate between consumers in one run, but that does not mean the system guarantees an odd/even or round-robin distribution.
 
-That was a useful correction to my mental model.
-
-The important thing wasn't the exact distribution.
-
-The important thing was:
+The important observation is:
 
 > **The consumers compete for available work.**
 
-The application should not depend on a particular distribution pattern.
+The application should depend on the fact that multiple consumers can process messages from the same queue, not on exactly how those messages are distributed between them.
 
 ---
 
@@ -369,11 +365,13 @@ Fast consumer → 17 messages
 Slow consumer → 3 messages
 ```
 
-That's the same 17/3 shape we saw in Experiment 2 — but for a different reason.
+This is a different kind of unevenness from Experiment 2.
 
-In Experiment 2, both consumers were equally fast and the uneven split was just how the competition landed in that run.
+Experiment 2 warned us not to assume round-robin just because one run looked neat.
 
-Here, the uneven split came from processing speed: the faster consumer kept taking work while the slower one was still busy.
+Here, processing speed clearly influenced the distribution.
+
+The faster consumer kept taking work while the slower one was still busy.
 
 The slow consumer did not stop the fast consumer from continuing to process available work.
 
@@ -389,7 +387,7 @@ It isn't:
 10 messages each
 ```
 
-Instead, consumers are competing for work as they become available to process it.
+Instead, consumers compete for work as they become available to process it.
 
 A faster consumer can therefore end up processing more messages than a slower one.
 
@@ -650,7 +648,9 @@ Two consumers don't mean:
 50%
 ```
 
-We observed both an almost perfectly alternating distribution and a much more uneven 17/3 distribution.
+An almost perfectly alternating run can look like round-robin, but that is not a guarantee.
+
+And when one consumer is slower, the split can become much more uneven — in our run, 17 to 3.
 
 The application should therefore depend on the **ability to share work**, not on a particular distribution pattern.
 
