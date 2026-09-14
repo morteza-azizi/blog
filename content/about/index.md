@@ -4,14 +4,79 @@ date: 2025-03-26
 hidemeta: true
 ShowBreadCrumbs: false
 ShowToc: false
+layout: about
 ---
 
-I am a Software Architect with deep engineering roots based in Amsterdam, Netherlands, with over 18 years of experience designing and building scalable, high-performance systems. My work spans industries like banking, energy, insurance, and retail, where I have designed robust architectures, implemented complex backend systems, and solved large-scale engineering challenges. I specialize in .NET, cloud technologies (Azure, AWS), and enterprise software development.
+# ADR-0000 — The Architect Behind the Decisions
 
-I am passionate about software design and coding, always striving to create efficient, maintainable, and scalable solutions. I have a strong focus on software architecture, Clean Architecture principles, Domain-Driven Design (DDD), and Test-Driven Development (TDD) to build high-quality software. 
+*Every architecture reflects the thinking of the architect who designed it.*  
+*This ADR documents the architect rather than the architecture.*
 
-Currently, I'm exploring new technologies and methodologies to enhance software development practices. My goal is to expand my expertise by contributing to open-source projects and sharing my knowledge through writing and speaking.
+---
 
-Beyond the world of technology, I'm a proud family man and father. Outside of work hours, you can find me exploring new destinations through travel or enjoying wine tasting - always appreciating the craftsmanship and stories behind a good bottle, much like I do with well-designed solutions.
+## System Context
 
-This site is my platform to share my journey, ideas, and projects as I continue growing in the field.
+```
+╔══════════════════════════════════════════════════════════════╗
+║                     SYSTEM INFORMATION                       ║
+╠═══════════════════════╦══════════════════════════════════════╣
+║  Name                 ║  Morteza Azizi                       ║
+║  Role                 ║  Software Architect                   ║
+║                       ║  · cloud-native distributed systems   ║
+║                       ║  · integration architecture           ║
+║  Runtime              ║  Haarlem, The Netherlands             ║
+║  Experience           ║  18+ years                            ║
+║  Primary Stack        ║  Azure · .NET · Integration           ║
+║  Current Status       ║  Always Learning                      ║
+║  Operating Mode       ║  Architecture through Engineering     ║
+╚═══════════════════════╩══════════════════════════════════════╝
+```
+
+---
+
+## What Architecture Means to Me
+
+Architecture isn't the goal. Helping people make better decisions is.
+
+I've been doing this long enough to know that the most useful architecture work rarely starts with a diagram or a technology choice. It starts with a conversation — usually about what problem we're actually solving, who is affected, and what we're willing to trade off to get there.
+
+My job, as I see it, is to help people understand those trade-offs. To ask better questions before we commit to an answer. To make the reasoning visible enough that someone can disagree with it constructively.
+
+Technology belongs in that conversation, but it's rarely where the conversation should begin. Platforms change. Frameworks come and go. The questions about reliability, cost, team capability, and operational burden tend to outlast all of them.
+
+I also believe architecture has to stay close to the code. You learn things in production — and in pull requests — that no whiteboard session will tell you. The best architectural decisions I've made were the ones I could still defend after trying to implement them.
+
+---
+
+## Decision Drivers
+
+| | Driver |
+|:---:|:---|
+| 🏢 | **Business First** — technology serves the problem, not the other way around |
+| 🔍 | **Clarity over Complexity** — if it needs a long explanation, it is probably wrong |
+| ⚙️ | **Architecture through Engineering** — proven by working code, not by slides |
+| 🔭 | **Curiosity** — the best solutions come from asking one more question |
+| 📖 | **Continuous Learning** — every engagement teaches something worth keeping |
+| 🤝 | **Enable People** — the goal is teams that can grow without you |
+
+---
+
+## The Human Side
+
+| | |
+|:---:|:---|
+| ❤️ | Married to my biggest supporter |
+| 👧 | Proud father |
+| 🐈 | Cat servant |
+| 🏠 | Proudly calling Haarlem home |
+| 🥩 | Loves cooking steaks and homemade gravies |
+| 🍞 | Current side quest: learning to bake bread |
+| 🍷 | Wine enthusiast — still orders wine on flights regardless of departure time |
+| 🎼 | Plays Persian classical music |
+| ✈️ | Loves traveling and discovering new cultures |
+| 📚 | Permanently running in learning mode |
+
+---
+
+> Architecture isn't the goal.
+> Helping people make better decisions is.

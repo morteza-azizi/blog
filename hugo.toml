@@ -4,12 +4,18 @@ title = 'Morteza Azizi'
 theme = 'hugo-coder'
 ignoreLogs = ['warning-goldmark-raw-html']
 
+[taxonomies]
+    tag = "tags"
+    category = "categories"
+    series = "series"
+
 [params]
     # Theme options
     defaultTheme = "auto"
     ShowBreadCrumbs = true
     ShowToc = true
     mainSections = ["posts"]
+    customCSS = ["css/series.css"]
     
     # Profile information
     author = "Morteza Azizi"

@@ -2,6 +2,9 @@
 title: "Architecture Is Easy Until You Have to Build It"
 date: 2026-07-28
 draft: false
+series:
+  - Architecture Through Engineering
+
 tags: ["software architecture", "engineering", "distributed systems", "architecture through engineering", "manifesto"]
 ---
 

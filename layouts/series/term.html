@@ -1,0 +1,31 @@
+{{ define "title" }}
+  {{ .Title }} · {{ .Site.Title }}
+{{ end }}
+{{ define "content" }}
+  {{ $pages := .Pages.ByDate }}
+  <section class="container list series-list">
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="{{ .Permalink | safeURL }}">
+          {{ .Title }}
+        </a>
+      </h1>
+      {{ with .Content }}
+        <div class="series-description">
+          {{ . }}
+        </div>
+      {{ end }}
+      <p class="series-count">
+        {{ len $pages }} {{ if eq (len $pages) 1 }}article{{ else }}articles{{ end }}
+      </p>
+    </header>
+    {{ partial "series-filter.html" . }}
+    <ol>
+      {{ range $pages }}
+        <li>
+          <a class="title" href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Title }}</a>
+        </li>
+      {{ end }}
+    </ol>
+  </section>
+{{ end }}

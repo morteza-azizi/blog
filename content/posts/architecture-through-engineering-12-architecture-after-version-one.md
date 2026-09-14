@@ -2,6 +2,9 @@
 title: "Architecture After Version One"
 date: 2026-08-09
 draft: true
+series:
+  - Architecture Through Engineering
+
 tags: ["architecture", "engineering", "architecture through engineering"]
 ---
 
