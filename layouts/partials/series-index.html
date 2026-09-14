@@ -1,0 +1,25 @@
+{{ with .Site.Taxonomies.series }}
+  <section class="series-index">
+    <h2>Series</h2>
+    {{ range .Alphabetical }}
+      {{ $term := $.Site.GetPage (printf "/series/%s" .Name) }}
+      <div class="series-index__item">
+        {{ if $term }}
+          <a class="series-index__name" href="{{ $term.RelPermalink }}">{{ $term.LinkTitle }}</a>
+        {{ else }}
+          <a class="series-index__name" href="{{ (printf "series/%s/" .Name) | relURL }}">{{ .Name | humanize | title }}</a>
+        {{ end }}
+        <span class="series-index__count">{{ .Count }}</span>
+        {{ with $term }}
+          {{ with .Params.description }}
+            <p class="series-index__description">{{ . }}</p>
+          {{ else }}
+            {{ with .Summary }}
+              <p class="series-index__description">{{ . | plainify | htmlUnescape }}</p>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      </div>
+    {{ end }}
+  </section>
+{{ end }}

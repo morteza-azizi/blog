@@ -1,0 +1,25 @@
+{{ $page := . }}
+<li>
+  <span class="date">{{ $page.Date | time.Format ($page.Site.Params.dateFormat | default "January 2, 2006" ) }}</span>
+  <span class="list-item-body">
+    {{- with $page.GetTerms "series" -}}
+      <span class="series-label">
+        {{- range . -}}
+          <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+        {{- end -}}
+      </span>
+    {{- end -}}
+    <a class="title" href="{{ $page.Params.externalLink | default $page.RelPermalink }}">{{ $page.Title }}</a>
+    {{- with (partial "post-summary.html" $page | strings.TrimSpace) -}}
+      <p class="list-item-summary">{{ . }}</p>
+    {{- end -}}
+    {{- with $page.GetTerms "tags" -}}
+      <span class="list-item-tags">
+        {{- range $index, $tag := . -}}
+          {{- if $index }}<span class="separator"> · </span>{{ end -}}
+          <a href="{{ $tag.RelPermalink }}">{{ $tag.LinkTitle }}</a>
+        {{- end -}}
+      </span>
+    {{- end -}}
+  </span>
+</li>

@@ -1,0 +1,18 @@
+{{ $current := . }}
+{{ $posts := .Site.GetPage "/posts" }}
+{{ $allActive := and (eq .Type "posts") (ne .Kind "term") }}
+{{ $postCount := 0 }}
+{{ with $posts }}{{ $postCount = len .RegularPages }}{{ end }}
+{{ with .Site.Taxonomies.series }}
+  <nav class="series-filter" aria-label="Series">
+    <a class="series-filter__item{{ if $allActive }} is-active{{ end }}" href="{{ with $posts }}{{ .RelPermalink }}{{ else }}{{ "posts/" | relURL }}{{ end }}">All Posts <span class="series-filter__count">({{ $postCount }})</span></a>
+    {{ range .Alphabetical }}
+      {{ $term := $current.Site.GetPage (printf "/series/%s" .Name) }}
+      {{ if $term }}
+        <a class="series-filter__item{{ if eq $term.RelPermalink $current.RelPermalink }} is-active{{ end }}" href="{{ $term.RelPermalink }}">{{ $term.LinkTitle }} <span class="series-filter__count">({{ .Count }})</span></a>
+      {{ else }}
+        <a class="series-filter__item" href="{{ (printf "series/%s/" .Name) | relURL }}">{{ .Name | humanize | title }} <span class="series-filter__count">({{ .Count }})</span></a>
+      {{ end }}
+    {{ end }}
+  </nav>
+{{ end }}

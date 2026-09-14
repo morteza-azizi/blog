@@ -2,6 +2,9 @@
 title: "RAG Starts With Ingestion, Not Chat"
 date: 2026-09-13
 draft: false
+series:
+  - Architecture Through Engineering
+
 tags: ["RAG", "architecture", "engineering", "architecture through engineering"]
 ---
 

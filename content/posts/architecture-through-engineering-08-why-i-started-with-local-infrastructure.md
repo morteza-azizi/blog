@@ -2,6 +2,9 @@
 title: "Why I Started With Local Infrastructure"
 date: 2026-08-09
 draft: true
+series:
+  - Architecture Through Engineering
+
 tags: ["architecture", "engineering", "architecture through engineering"]
 ---
 

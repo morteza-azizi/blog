@@ -1,0 +1,8 @@
+<div class="series">
+  <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+  {{- range . -}}
+    <span class="series-term">
+      <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+    </span>
+  {{- end -}}
+</div>

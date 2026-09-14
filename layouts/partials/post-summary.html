@@ -1,0 +1,30 @@
+{{- $page := . -}}
+{{- $summary := "" -}}
+{{- with $page.Params.description -}}
+  {{- $summary = . -}}
+{{- else -}}
+  {{- $text := $page.RawContent -}}
+  {{- $text = replaceRE "(?s)```.*?```" "" $text -}}
+  {{- $open := "{{<" -}}
+  {{- $close := ">}}" -}}
+  {{- $text = replaceRE (printf `(?s)%s\s*mermaid\s*%s.*?%s\s*/mermaid\s*%s` $open $close $open $close) "" $text -}}
+  {{- $text = replaceRE (printf `(?s)%s.*?%s` $open $close) "" $text -}}
+  {{- $text = replaceRE `(?m)^#{1,6}\s+.*$` "" $text -}}
+  {{- $text = replaceRE `(?m)^>.*$` "" $text -}}
+  {{- $text = replaceRE `(?m)^(-{3,}|\*{3,}|_{3,})\s*$` "" $text -}}
+  {{- $text = replaceRE `!\[[^\]]*\]\([^)]+\)` "" $text -}}
+  {{- $picked := slice -}}
+  {{- range split $text "\n\n" -}}
+    {{- $p := . | markdownify | plainify | htmlUnescape | strings.TrimSpace -}}
+    {{- $p = replaceRE `\s+` " " $p -}}
+    {{- if and (ge (len $p) 55) (findRE `[.!?]$` $p) (not (findRE `[│┌┐└┘├┤┬┴┼━┃─]` $p)) (lt (len $picked) 1) -}}
+      {{- $picked = $picked | append $p -}}
+    {{- end -}}
+  {{- end -}}
+  {{- with $picked -}}
+    {{- $summary = index . 0 -}}
+  {{- end -}}
+{{- end -}}
+{{- if $summary -}}
+{{- $summary | strings.TrimSpace | truncate 160 -}}
+{{- end -}}

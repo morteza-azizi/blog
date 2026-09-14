@@ -1,0 +1,25 @@
+{{ $currentPageUrl := .RelPermalink }}
+{{ with .GetTerms "series" }}
+  {{ range . }}
+    {{ $pages := .Pages.ByDate }}
+    {{ if gt (len $pages) 1 }}
+      {{ $.Scratch.Set "seriesIndex" -1 }}
+      {{ range $i, $p := $pages }}
+        {{ if eq $p.RelPermalink $currentPageUrl }}
+          {{ $.Scratch.Set "seriesIndex" $i }}
+        {{ end }}
+      {{ end }}
+      {{ $idx := $.Scratch.Get "seriesIndex" }}
+      <nav class="series-pager" aria-label="Series navigation">
+        {{ if and (ge $idx 0) (gt $idx 0) }}
+          {{ $prev := index $pages (sub $idx 1) }}
+          <a class="series-pager__prev" href="{{ $prev.RelPermalink }}">← {{ $prev.Title }}</a>
+        {{ end }}
+        {{ if and (ge $idx 0) (lt $idx (sub (len $pages) 1)) }}
+          {{ $next := index $pages (add $idx 1) }}
+          <a class="series-pager__next" href="{{ $next.RelPermalink }}">{{ $next.Title }} →</a>
+        {{ end }}
+      </nav>
+    {{ end }}
+  {{ end }}
+{{ end }}

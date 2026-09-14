@@ -2,6 +2,9 @@
 title: "Why I Chose RAG as My First Reference Implementation"
 date: 2026-08-03
 draft: false
+series:
+  - Architecture Through Engineering
+
 tags: ["RAG", "architecture", "engineering", "architecture through engineering", "series", "AI"]
 ---
 

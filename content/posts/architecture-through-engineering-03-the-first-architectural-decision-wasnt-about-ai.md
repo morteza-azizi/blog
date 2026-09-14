@@ -2,6 +2,9 @@
 title: "The First Architectural Decision Wasn't About AI"
 date: 2026-08-26
 draft: false
+series:
+  - Architecture Through Engineering
+
 tags: ["architecture", "engineering", "architecture through engineering"]
 ---
 
