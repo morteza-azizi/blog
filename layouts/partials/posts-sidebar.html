@@ -1,0 +1,44 @@
+<aside class="posts-sidebar">
+  {{ with .Site.Taxonomies.series }}
+    <section class="sidebar-card">
+      <div class="sidebar-card__head">
+        <h2><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Explore by Series</h2>
+        <a href="{{ "series/" | relURL }}">View all</a>
+      </div>
+      {{ range .Alphabetical }}
+        {{ $term := $.Site.GetPage (printf "/series/%s" .Name) }}
+        <a class="sidebar-series" href="{{ if $term }}{{ $term.RelPermalink }}{{ else }}{{ (printf "series/%s/" .Name) | relURL }}{{ end }}">
+          <span class="sidebar-series__dot" aria-hidden="true"></span>
+          <span class="sidebar-series__text">
+            <span class="sidebar-series__name">{{ if $term }}{{ $term.LinkTitle }}{{ else }}{{ .Name | humanize | title }}{{ end }} <em>({{ .Count }})</em></span>
+            {{ with $term }}
+              {{ with .Params.description }}
+                <span class="sidebar-series__desc">{{ . }}</span>
+              {{ end }}
+            {{ end }}
+          </span>
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+      {{ end }}
+    </section>
+  {{ end }}
+
+  {{ with .Site.Taxonomies.tags }}
+    <section class="sidebar-card">
+      <div class="sidebar-card__head">
+        <h2><i class="fa-solid fa-tags" aria-hidden="true"></i> Popular Tags</h2>
+        <a href="{{ "tags/" | relURL }}">View all</a>
+      </div>
+      <div class="sidebar-tags">
+        {{ range first 12 .ByCount }}
+          {{ $tag := $.Site.GetPage (printf "/tags/%s" .Name) }}
+          {{ if $tag }}
+            <a href="{{ $tag.RelPermalink }}">{{ $tag.LinkTitle }}</a>
+          {{ else }}
+            <a href="{{ (printf "tags/%s/" .Name) | relURL }}">{{ .Name | humanize | title }}</a>
+          {{ end }}
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+</aside>

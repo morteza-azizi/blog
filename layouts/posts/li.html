@@ -1,25 +1,44 @@
 {{ $page := . }}
-<li>
-  <span class="date">{{ $page.Date | time.Format ($page.Site.Params.dateFormat | default "January 2, 2006" ) }}</span>
-  <span class="list-item-body">
-    {{- with $page.GetTerms "series" -}}
-      <span class="series-label">
+{{ $href := $page.Params.externalLink | default $page.RelPermalink }}
+<li class="post-card">
+  <div class="post-card__media" aria-hidden="true">
+    {{ with $page.Params.featuredImage }}
+      <img src="{{ . | relURL }}" alt="">
+    {{ else }}
+      {{ $tone := substr (md5 $page.Title) 0 6 }}
+      <span class="post-card__fallback" style="background: linear-gradient(160deg, #{{ $tone }}33, #1e293b);">{{ substr $page.Title 0 1 }}</span>
+    {{ end }}
+  </div>
+  <div class="post-card__body">
+    <div class="post-card__meta">
+      <time datetime="{{ $page.Date.Format "2006-01-02" }}">{{ $page.Date.Format "Jan 2, 2006" }}</time>
+      {{- with $page.GetTerms "series" -}}
         {{- range . -}}
-          <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+          <a class="post-card__series" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
         {{- end -}}
-      </span>
-    {{- end -}}
-    <a class="title" href="{{ $page.Params.externalLink | default $page.RelPermalink }}">{{ $page.Title }}</a>
+      {{- end -}}
+    </div>
+    <h2 class="post-card__title">
+      <a href="{{ $href }}">{{ $page.Title }}</a>
+    </h2>
     {{- with (partial "post-summary.html" $page | strings.TrimSpace) -}}
-      <p class="list-item-summary">{{ . }}</p>
+      <p class="post-card__summary">{{ . }}</p>
     {{- end -}}
-    {{- with $page.GetTerms "tags" -}}
-      <span class="list-item-tags">
-        {{- range $index, $tag := . -}}
-          {{- if $index }}<span class="separator"> · </span>{{ end -}}
-          <a href="{{ $tag.RelPermalink }}">{{ $tag.LinkTitle }}</a>
-        {{- end -}}
+    <div class="post-card__footer">
+      {{- with $page.GetTerms "tags" -}}
+        <span class="post-card__tags">
+          {{- range first 4 . -}}
+            <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+          {{- end -}}
+        </span>
+      {{- end -}}
+      <span class="post-card__read">
+        <i class="fa-regular fa-clock" aria-hidden="true"></i>
+        {{ $page.ReadingTime }} min read
       </span>
-    {{- end -}}
-  </span>
+    </div>
+  </div>
+  <a class="post-card__go" href="{{ $href }}" aria-label="Read {{ $page.Title }}">
+    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+  </a>
 </li>
