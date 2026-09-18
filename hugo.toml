@@ -15,11 +15,12 @@ ignoreLogs = ['warning-goldmark-raw-html']
     ShowBreadCrumbs = true
     ShowToc = true
     mainSections = ["posts"]
-    customCSS = ["css/series.css"]
+    customCSS = ["css/series.css", "css/posts.css", "css/home.css"]
     
     # Profile information
     author = "Morteza Azizi"
-    info = "Design and Building Scalable Systems"
+    role = "Software Architect"
+    info = "Designing and building scalable systems."
     description = "Passionate about building scalable systems"
     avatarURL = "/img/avatar.jpg"
     
@@ -42,13 +43,19 @@ ignoreLogs = ['warning-goldmark-raw-html']
 
 [menu]
     [[menu.main]]
+        identifier = "home"
+        name = "Home"
+        url = "/"
+        weight = 1
+
+    [[menu.main]]
         identifier = "posts"
         name = "Posts"
         url = "/posts/"
-        weight = 1
+        weight = 2
         
     [[menu.main]]
         identifier = "about"
         name = "About"
         url = "/about/"
-        weight = 2
+        weight = 3

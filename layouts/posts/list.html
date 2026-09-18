@@ -2,27 +2,56 @@
   {{ title (i18n (lower .Title)) | default .Title }} · {{ .Site.Title }}
 {{ end }}
 {{ define "content" }}
-  <section class="container list">
-    <header>
-      <h1 class="title">
-        <a class="title-link" href="{{ .Permalink | safeURL }}">
-          {{ title (i18n (lower .Title)) | default .Title }}
-        </a>
-      </h1>
-      {{ with .Content }}
-        <div class="posts-intro">
-          {{ . }}
-        </div>
-      {{ end }}
+  <section class="posts-page">
+    <header class="posts-hero">
+      <div class="posts-hero__copy">
+        <p class="posts-hero__eyebrow">Technical blog</p>
+        <h1 class="posts-hero__title">
+          <a class="title-link" href="{{ .Permalink | safeURL }}">{{ .Title }}</a>
+        </h1>
+        {{ with .Content }}
+          <div class="posts-hero__intro">{{ . }}</div>
+        {{ end }}
+        <ul class="posts-hero__points">
+          <li>
+            <i class="fa-solid fa-comments" aria-hidden="true"></i>
+            <span><strong>Problems first</strong> the trade-off, before the technology</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-code" aria-hidden="true"></i>
+            <span><strong>Close to the code</strong> what production actually teaches</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>
+            <span><strong>Proven by building</strong> decisions you can still defend</span>
+          </li>
+        </ul>
+      </div>
+      <figure class="posts-hero__art">
+        <img
+          class="posts-hero__photo"
+          src="{{ "img/posts-hero-haarlem.jpg" | relURL }}"
+          alt="Canal houses on the Spaarne in Haarlem, with St. Bavo’s church tower"
+          width="1800"
+          height="1200">
+        <figcaption class="posts-hero__credit">
+          Photo: <a href="https://unsplash.com/photos/BMeTnRU28G8">Mark de Jong</a>, Haarlem, Unsplash
+        </figcaption>
+      </figure>
     </header>
-    {{ partial "series-filter.html" . }}
-    {{ partial "series-index.html" . }}
-    <ul>
-      {{- range .Paginator.Pages -}}
-        {{- .Render "li" -}}
-      {{- end -}}
-    </ul>
 
-    {{ partial "pagination.html" . }}
+    {{ partial "series-filter.html" . }}
+
+    <div class="posts-layout">
+      <div class="posts-main">
+        <ul class="posts-feed">
+          {{- range .Paginator.Pages -}}
+            {{- .Render "li" -}}
+          {{- end -}}
+        </ul>
+        {{ partial "pagination.html" . }}
+      </div>
+      {{ partial "posts-sidebar.html" . }}
+    </div>
   </section>
 {{ end }}
