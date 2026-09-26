@@ -58,9 +58,9 @@ That line hides the decision.
 
 A chunk that is too small loses the sentence that made the paragraph mean something.
 
-A chunk that is too large drags in material the question did not ask for, costs more to embed, and makes the score harder to trust.
+A chunk that is too large can bring in unrelated material, costs more to embed, and can reduce the precision of retrieval.
 
-Overlap is a bet that meaning lives on the boundary.
+Overlap is a bet that preserving context across chunk boundaries is worth the duplication.
 
 No overlap is a bet that it does not.
 
@@ -95,7 +95,7 @@ It does not know a score.
 
 `RetrievedChunk` still wraps a chunk plus a score. That type is not a chunking decision. It is a retrieval decision, waiting for Part 7.
 
-So the cut from Part 5 is still in force.
+So the boundary established in Part 5 still holds.
 
 A document is the source the system accepted.
 
