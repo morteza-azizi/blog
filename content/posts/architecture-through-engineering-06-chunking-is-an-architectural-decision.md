@@ -178,9 +178,9 @@ None of those is a bug. They are the bill.
 
 A fixed strategy is cheap to ship and expensive to undo once embeddings exist. Changing chunk size later is not a config tweak. It is a re-index, a new meaning for `Index`, and a silent change in what "relevant" meant last week.
 
-A configurable strategy looks mature. It also asks every caller to become a chunking expert, and it makes test results incomparable across documents.
+A configurable strategy looks mature. It can also turn chunking policy into configuration that callers have to understand, and make test results harder to compare across documents.
 
-A content-aware strategy looks intelligent. It also needs a parser that understands more than `.txt` and `.md` extensions, and it needs someone to own the cases where the heuristic is wrong.
+A content-aware strategy looks intelligent. It also needs richer knowledge of document structure, and someone to own the cases where the heuristic is wrong.
 
 The current port is the first of those: **fixed behind the interface.**
 
@@ -246,7 +246,7 @@ If chunking lives in the API, every future entry point has to relearn it.
 
 If chunking lives in the domain type, `DocumentChunk` stops being a record and becomes an algorithm with fields attached.
 
-The application port is the same kind of placement as the format policy in Part 4. "How do we turn source text into retrievable pieces?" is a system question. Infrastructure can implement it. The domain can hold the result. The application should own the need.
+The application port is the same kind of placement as the format policy in Part 4. "How do we turn source text into retrievable pieces?" is a system question. Infrastructure can implement it. The domain can hold the result. The application should own the use case.
 
 It also buys honesty about timing.
 
@@ -260,7 +260,7 @@ I will have to come back to this article when an implementation exists, and agai
 
 A document, in this system, is still not knowledge.
 
-A chunk is how it is supposed to become retrievable.
+A chunk is the unit the system intends to make retrievable.
 
 The type is named. The port is named. Neither has been exercised by an uploaded file.
 
