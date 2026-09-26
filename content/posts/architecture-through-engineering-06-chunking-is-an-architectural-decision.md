@@ -1,7 +1,7 @@
 ---
 title: "Chunking Is an Architectural Decision"
-date: 2026-09-18
-draft: true
+date: 2026-09-27
+draft: false
 series:
   - Architecture Through Engineering
 
