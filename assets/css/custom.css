@@ -23,14 +23,22 @@
 }
 
 /* Make sure tags appear smaller with proper spacing */
-.list ul li .tags, 
+.list ul li .tags,
+.list ul li .categories,
 .single .post .tags,
+.single .post .categories,
 .terms a.taxonomy-count {
   font-size: 0.75rem;
 }
 
-.list ul li .tags a, 
-.single .post .tags a {
+.list ul li .tags a,
+.list ul li .categories a,
+.single .post .tags a,
+.single .post .categories a {
   padding: 3px 6px;
   margin-right: 4px;
+}
+
+.content .post .post-meta .categories {
+  margin: 0.6rem 0;
 } 
