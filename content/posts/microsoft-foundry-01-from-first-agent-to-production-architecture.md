@@ -2,7 +2,7 @@
 title: "Microsoft Foundry Agents: From First Agent to Production Architecture"
 description: "A Foundry prompt agent can advise on a failed Service Bus message, but instructions do not give it a way to dead-letter that message."
 date: 2026-10-18
-draft: true
+draft: false
 categories:
   - Foundry
 series:
