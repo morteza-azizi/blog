@@ -1,6 +1,6 @@
 ---
 title: "Microsoft Foundry Agents: From First Agent to Production Architecture"
-description: "What a Foundry agent looks like once it moves from a prototype into an application architecture."
+description: "A Foundry prompt agent can advise on a failed Service Bus message, but instructions do not give it a way to dead-letter that message."
 date: 2026-10-18
 draft: true
 categories:
@@ -25,18 +25,6 @@ I have worked with these kinds of boundaries for years around Service Bus, APIs,
 **What does a Foundry agent look like when it moves from a prototype into an application architecture?**
 
 TL;DR. An agent can help an engineer investigate a failed message, but that doesn't mean it should own message processing. In this experiment, I use a Foundry agent to investigate a failed Azure Service Bus message and ask it to dead-letter the message. I recorded how it responded when it had no tool to perform the operation.
-
-I created a prompt agent to help an integration engineer investigate a failed Azure Service Bus message. The message failed because its body was missing a correlation ID.
-
-The engineer needs to understand the failure and decide what to do next. A transient failure may justify a retry, while a message that violates the required contract may need to be dead-lettered. The consumer's error-handling policy determines what happens.
-
-I then ask the agent to dead-letter the message.
-
-The agent has no tools connected to Service Bus and no permissions on the namespace. It can explain what needs to happen, but it cannot perform the operation.
-
-I want to see how it responds. Does it explain what the engineer should do, or does it answer as if it has already dead-lettered the message?
-
-I tested this with three prompts, including one where I claim to have authorized the action.
 
 ---
 
@@ -190,9 +178,3 @@ A Foundry agent can help an engineer investigate a failed message, but the appli
 In this experiment, the agent had no tools connected to Service Bus. The three responses are in [results.md](https://github.com/morteza-azizi/microsoft-foundry-architecture/blob/main/experiments/01-agent-boundaries/results.md). A refusal there is the model following its instructions, not a dead-letter that was attempted and blocked.
 
 The next article will explore how MCP can expose capabilities to an agent, and what that means for the architecture.
-
----
-
-## Next Article
-
-> In the next article, we move from **the agent itself** to **MCP**, and examine **how an agent reaches a capability outside the model without a set of tightly coupled tool integrations**.
