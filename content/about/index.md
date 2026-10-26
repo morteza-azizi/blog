@@ -10,7 +10,9 @@ layout: about
 # ADR-0000 — The Architect Behind the Decisions
 
 *Every architecture reflects the thinking of the architect who designed it.*  
-*This ADR documents the architect rather than the architecture.*
+*This ADR documents the architect rather than the architecture.*  
+
+{{< figure class="about-photo" src="/img/tech-university-oct-2026.jpg" alt="Morteza Azizi speaking at a lectern at CBX Tech University 2026" width="514" height="342" loading="lazy" caption="Speaking at CBX Tech University 2026." >}}
 
 ---
 
@@ -50,31 +52,27 @@ I also believe architecture has to stay close to the code. You learn things in p
 
 ## Decision Drivers
 
-| | Driver |
-|:---:|:---|
-| 🏢 | **Business First** — technology serves the problem, not the other way around |
-| 🔍 | **Clarity over Complexity** — if it needs a long explanation, it is probably wrong |
-| ⚙️ | **Architecture through Engineering** — proven by working code, not by slides |
-| 🔭 | **Curiosity** — the best solutions come from asking one more question |
-| 📖 | **Continuous Learning** — every engagement teaches something worth keeping |
-| 🤝 | **Enable People** — the goal is teams that can grow without you |
+- **Business First** — technology serves the problem, not the other way around
+- **Clarity over Complexity** — if it needs a long explanation, it is probably wrong
+- **Architecture through Engineering** — proven by working code, not by slides
+- **Curiosity** — the best solutions come from asking one more question
+- **Continuous Learning** — every engagement teaches something worth keeping
+- **Enable People** — the goal is teams that can grow without you
 
 ---
 
 ## The Human Side
 
-| | |
-|:---:|:---|
-| ❤️ | Married to my biggest supporter |
-| 👧 | Proud father |
-| 🐈 | Cat servant |
-| 🏠 | Proudly calling Haarlem home |
-| 🥩 | Loves cooking steaks and homemade gravies |
-| 🍞 | Current side quest: learning to bake bread |
-| 🍷 | Wine enthusiast — still orders wine on flights regardless of departure time |
-| 🎼 | Plays Persian classical music |
-| ✈️ | Loves traveling and discovering new cultures |
-| 📚 | Permanently running in learning mode |
+- Married to my biggest supporter
+- Proud father
+- Cat servant
+- Proudly calling Haarlem home
+- Loves cooking steaks and homemade gravies
+- Current side quest: learning to bake bread
+- Wine enthusiast — still orders wine on flights regardless of departure time
+- Plays Persian classical music
+- Loves traveling and discovering new cultures
+- Permanently running in learning mode
 
 ---
 
