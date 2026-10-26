@@ -60,5 +60,47 @@
         <span><strong>Reasoning made visible</strong> clear enough to challenge</span>
       </li>
     </ul>
+
+    {{ $latest := first 3 (where .Site.RegularPages "Section" "posts") }}
+    {{ if $latest }}
+      <section class="home-work" aria-labelledby="home-work-title">
+        <div class="home-work__head">
+          <h2 id="home-work-title">Latest articles</h2>
+          <a href="{{ "posts/" | relLangURL }}">All articles <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="posts-layout">
+          <ul class="posts-feed">
+            {{- range $latest -}}
+              {{- .Render "li" -}}
+            {{- end -}}
+          </ul>
+          {{ with .Site.Taxonomies.series }}
+            <aside class="posts-sidebar">
+              <section class="sidebar-card">
+                <div class="sidebar-card__head">
+                  <h2><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Explore by Series</h2>
+                  <a href="{{ "series/" | relURL }}">View all</a>
+                </div>
+                {{ range .Alphabetical }}
+                  {{ $term := $.Site.GetPage (printf "/series/%s" .Name) }}
+                  <a class="sidebar-series" href="{{ if $term }}{{ $term.RelPermalink }}{{ else }}{{ (printf "series/%s/" .Name) | relURL }}{{ end }}">
+                    <span class="sidebar-series__dot" aria-hidden="true"></span>
+                    <span class="sidebar-series__text">
+                      <span class="sidebar-series__name">{{ if $term }}{{ $term.LinkTitle }}{{ else }}{{ .Name | humanize | title }}{{ end }} <em>({{ .Count }})</em></span>
+                      {{ with $term }}
+                        {{ with .Params.description }}
+                          <span class="sidebar-series__desc">{{ . }}</span>
+                        {{ end }}
+                      {{ end }}
+                    </span>
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                  </a>
+                {{ end }}
+              </section>
+            </aside>
+          {{ end }}
+        </div>
+      </section>
+    {{ end }}
   </section>
 {{ end }}
