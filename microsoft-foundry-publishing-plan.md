@@ -109,6 +109,10 @@ The blank template for a later article is `archetypes/microsoft-foundry.md`.
 Copy this list when an article enters its experiment window.
 
 - [ ] Experiment is running, and the result can be told as Expected, Observed, Conclusion
+- [ ] Expected was written before the run and is not edited afterwards. Observed is pasted unchanged, with raw payloads or logs linked
+- [ ] Every platform claim is marked Documented, Reported, Assumed, or Observed in the "claims under test" table, and none is stated as fact in Context, Architecture, or Trade-offs unless it is Observed
+- [ ] Any result that contradicts the article, or an earlier article, is added to the Part 10 corrections ledger, and the earlier article gets a correction note
+- [ ] Code shown in Build was run, and any stub (for example a parser written after a captured payload) is replaced
 - [ ] Opening states the question, why it matters, what was built, and what the reader learns
 - [ ] Context names the Foundry capability, the scenario, and the assumptions
 - [ ] Architecture, with a diagram if the boundary is easier to see than to read
