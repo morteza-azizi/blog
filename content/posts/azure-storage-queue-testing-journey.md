@@ -1,5 +1,6 @@
 ---
 title: "From Service Bus to Storage Queue: A Testing Journey"
+description: "The same local testing approach, moved from Azure Service Bus to Storage Queue, and what Azurite and Testcontainers changed."
 date: 2025-10-12
 draft: false
 tags: ["azure", "storage queue", "testing", "testcontainers", "azure functions", "integration testing", "local development", "azurite"]

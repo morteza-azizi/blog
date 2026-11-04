@@ -1,0 +1,46 @@
+{{- if or (eq .Kind "404") (and (or (eq .Kind "term") (eq .Kind "taxonomy")) (ne .Type "series")) }}
+<meta name="robots" content="noindex, follow">
+{{- end }}
+
+{{- $sameAs := slice -}}
+{{- range .Site.Params.social -}}
+  {{- with .url }}{{ $sameAs = $sameAs | append . }}{{ end -}}
+{{- end -}}
+{{- $author := dict "@type" "Person" "name" (.Site.Params.author | default .Site.Title) "url" .Site.Home.Permalink "jobTitle" (.Site.Params.role | default "Software Architect") -}}
+{{- with $sameAs }}{{ $author = merge $author (dict "sameAs" .) }}{{ end -}}
+{{- $image := "" -}}
+{{- with .Params.images -}}
+  {{- $image = index . 0 | absURL -}}
+{{- else -}}
+  {{- with site.Params.images }}{{ $image = index . 0 | absURL }}{{ end -}}
+{{- end -}}
+{{- $desc := partial "seo/description.html" . -}}
+
+{{- if .IsHome -}}
+<script type="application/ld+json">
+{{- dict "@context" "https://schema.org" "@graph" (slice
+  (dict "@type" "WebSite" "name" .Site.Title "url" .Site.Home.Permalink "description" (.Site.Params.description | plainify) "inLanguage" "en" "author" (dict "@id" (printf "%s#person" .Site.Home.Permalink)) "publisher" (dict "@id" (printf "%s#person" .Site.Home.Permalink)))
+  (merge $author (dict "@id" (printf "%s#person" .Site.Home.Permalink)))
+) | jsonify | safeJS -}}
+</script>
+{{- else if and (eq .Section "posts") .IsPage -}}
+{{- $posting := dict "@type" "BlogPosting" "headline" .Title "description" $desc "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00") "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00") "author" (dict "@id" (printf "%s#person" .Site.Home.Permalink)) "publisher" (dict "@id" (printf "%s#person" .Site.Home.Permalink)) "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink) "url" .Permalink "inLanguage" "en" "wordCount" .WordCount "isPartOf" (dict "@type" "WebSite" "name" .Site.Title "url" .Site.Home.Permalink) -}}
+{{- with $image }}{{ $posting = merge $posting (dict "image" .) }}{{ end -}}
+{{- with .Params.tags }}{{ $posting = merge $posting (dict "keywords" (delimit . ", ")) }}{{ end -}}
+{{- $crumbs := slice
+  (dict "@type" "ListItem" "position" 1 "name" "Home" "item" .Site.Home.Permalink)
+  (dict "@type" "ListItem" "position" 2 "name" "Posts" "item" ("posts/" | absURL))
+  (dict "@type" "ListItem" "position" 3 "name" .Title "item" .Permalink)
+-}}
+<script type="application/ld+json">
+{{- dict "@context" "https://schema.org" "@graph" (slice $posting (dict "@type" "BreadcrumbList" "itemListElement" $crumbs) (merge $author (dict "@id" (printf "%s#person" .Site.Home.Permalink)))) | jsonify | safeJS -}}
+</script>
+{{- else if eq .Section "about" -}}
+<script type="application/ld+json">
+{{- dict "@context" "https://schema.org" "@type" "ProfilePage" "name" .Title "url" .Permalink "description" $desc "mainEntity" (merge $author (dict "@id" (printf "%s#person" .Site.Home.Permalink))) | jsonify | safeJS -}}
+</script>
+{{- else if and (eq .Kind "term") (eq .Type "series") -}}
+<script type="application/ld+json">
+{{- dict "@context" "https://schema.org" "@type" "CollectionPage" "name" .Title "url" .Permalink "description" $desc "isPartOf" (dict "@type" "WebSite" "name" .Site.Title "url" .Site.Home.Permalink) | jsonify | safeJS -}}
+</script>
+{{- end -}}

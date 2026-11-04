@@ -1,5 +1,6 @@
 ---
 title: "15 Essential GitHub Copilot Features to Enhance Your Coding Workflow"
+description: "Fifteen GitHub Copilot features for writing, reviewing, and navigating code, and where each one actually helps."
 date: 2025-03-26
 draft: false
 tags: ["GitHub Copilot", "AI coding", "developer tools", "productivity", "code generation", "programming"]

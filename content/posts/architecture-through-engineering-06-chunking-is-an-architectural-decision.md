@@ -1,5 +1,6 @@
 ---
 title: "Chunking Is an Architectural Decision"
+description: "Splitting a document into chunks decides what retrieval can find. Part 6 treats that cut as an architectural decision, not a parameter."
 date: 2026-09-27
 draft: false
 series:

@@ -1,0 +1,5 @@
+{{- $desc := .Description | plainify | htmlUnescape | replaceRE `(?i)link to heading` "" | replaceRE `\s+` " " | strings.TrimSpace -}}
+{{- if lt (len $desc) 40 -}}
+  {{- $desc = .Site.Params.description | plainify | strings.TrimSpace -}}
+{{- end -}}
+{{- $desc -}}

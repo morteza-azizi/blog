@@ -1,5 +1,6 @@
 ---
 title: "Understanding the Wire Tap Pattern in Messaging Systems"
+description: "The Wire Tap pattern copies messages for monitoring and audit without changing the main flow, from Enterprise Integration Patterns into practice."
 date: 2025-06-17
 draft: false
 tags: ["messaging", "enterprise integration", "design patterns", "system architecture", "monitoring", "auditing"]

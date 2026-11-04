@@ -1,5 +1,5 @@
 {{ define "title" }}
-  {{ .Site.Title }}
+  {{ .Site.Title }} · {{ .Site.Params.role | default "Software Architect" }}
 {{ end }}
 {{ define "content" }}
   <section class="home-page">

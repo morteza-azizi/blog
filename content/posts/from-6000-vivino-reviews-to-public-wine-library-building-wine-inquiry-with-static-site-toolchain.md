@@ -2,6 +2,7 @@
 date = '2026-01-14'
 draft = false
 title = 'From 6,000+ Vivino Reviews to a Public Wine Library: Building Wine Inquiry with a Static Site + a Toolchain'
+description = 'How 6,000 Vivino tasting notes became a public wine library: a static site and a toolchain, instead of leaving the reviews inside another app.'
 tags = ['wine', 'static-site', 'hugo', 'software-architecture', 'pipeline', 'content-platform', 'data-migration']
 +++
 
