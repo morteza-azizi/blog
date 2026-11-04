@@ -1,5 +1,6 @@
 ---
 title: "Azure Service Bus Testing Without the Drama"
+description: "How to integration-test Azure Functions and Service Bus locally with Testcontainers, without shared cloud queues or flaky environments."
 date: 2025-06-25
 draft: false
 tags: ["azure", "service bus", "testing", "testcontainers", "azure functions", "integration testing", "local development"]

@@ -1,5 +1,6 @@
 ---
 title: "15 Essential AI Coding Assistant Features That Boost Developer Productivity"
+description: "Fifteen AI coding-assistant features, from autocompletion to debugging, and how Copilot and Cursor change day-to-day development."
 date: 2025-03-26
 draft: false
 tags: ["AI coding", "developer tools", "productivity", "GitHub Copilot", "Cursor AI", "code generation", "programming"]

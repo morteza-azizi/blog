@@ -1,5 +1,6 @@
 ---
 title: "The Shape of the System"
+description: "Before models and vector databases, the system needs a shape. Part 2 draws where responsibilities live in a RAG reference implementation."
 date: 2026-08-09
 draft: false
 series:

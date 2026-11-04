@@ -1,5 +1,6 @@
 ---
 title: "Why Use Mermaid for Diagrams: Benefits for Developers and Technical Teams"
+description: "Why Mermaid fits technical teams: diagrams as text, in the repo, reviewed and versioned with the code instead of in a separate drawing tool."
 date: 2025-03-28
 draft: false
 tags: ["Mermaid", "diagrams", "documentation", "markdown", "developer tools", "version control", "DevOps"]

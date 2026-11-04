@@ -1,5 +1,6 @@
 ---
 title: "RAG Starts With Ingestion, Not Chat"
+description: "Retrieval cannot fix knowledge that was never ingested well. Part 4 starts the RAG system at the door, not at the chat box."
 date: 2026-09-13
 draft: false
 series:

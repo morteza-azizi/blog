@@ -1,5 +1,6 @@
 ---
 title: "AI-first architecture for essential systems: what actually changes"
+description: "What stays the same, and what changes, when AI speeds up delivery of essential systems in banking, telecom, healthcare, and similar domains."
 date: 2026-07-04
 draft: false
 tags: ["AI", "architecture", "essential systems", "software delivery", "leadership", "governance"]

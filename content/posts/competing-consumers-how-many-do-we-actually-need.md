@@ -1,5 +1,6 @@
 ---
 title: "How Many Consumers Do We Actually Need?"
+description: "How many competing consumers a queue actually needs. A practical look at the pattern with Azure Service Bus, from one consumer to many."
 date: 2026-08-18
 draft: false
 tags: ["azure", "service bus", "messaging", "competing consumers", "architecture", "distributed systems"]

@@ -1,0 +1,17 @@
+# {{ .Site.Title }}
+
+> {{ .Site.Params.description }}
+
+{{ .Site.Params.author }} is a {{ .Site.Params.role | default "software architect" }}. The site is {{ .Site.Home.Permalink }}.
+
+## Series
+
+{{- range .Site.Taxonomies.series }}
+- [{{ .Page.Title }}]({{ .Page.Permalink }}): {{ .Page.Description | plainify | htmlUnescape | replaceRE `\s+` " " | strings.TrimSpace }}
+{{- end }}
+
+## Posts
+
+{{- range where .Site.RegularPages "Section" "posts" }}
+- [{{ .Title }}]({{ .Permalink }}): {{ partial "seo/description.html" . }}
+{{- end }}
