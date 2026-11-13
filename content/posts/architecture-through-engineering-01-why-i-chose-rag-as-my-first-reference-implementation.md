@@ -1,5 +1,6 @@
 ---
 title: "Why I Chose RAG as My First Reference Implementation"
+description: "Why RAG is the first reference implementation in this series: a system with real boundaries, not another retrieval tutorial."
 date: 2026-08-03
 draft: false
 series:

@@ -1,5 +1,6 @@
 ---
 title: "About"
+description: "Morteza Azizi is a software architect in Haarlem, working on cloud-native distributed systems, Azure, .NET, and integration architecture."
 date: 2025-03-26
 hidemeta: true
 ShowBreadCrumbs: false

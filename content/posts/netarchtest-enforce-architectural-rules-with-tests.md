@@ -1,5 +1,6 @@
 ---
 title: "NetArchTest for .NET: Enforce Architectural Rules with Tests"
+description: "How NetArchTest turns .NET architecture rules into tests, so a controller cannot quietly call a repository and undo Clean Architecture."
 date: 2025-06-28
 draft: false
 tags: ["netarchtest", "architecture", "clean architecture", "testing", "dotnet", "architecture-as-code", "governance"]

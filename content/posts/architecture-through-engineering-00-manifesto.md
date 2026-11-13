@@ -1,5 +1,6 @@
 ---
 title: "Architecture Is Easy Until You Have to Build It"
+description: "Architecture is easy to describe and hard to build. The manifesto for a series about learning software architecture by implementing it."
 date: 2026-07-28
 draft: false
 series:

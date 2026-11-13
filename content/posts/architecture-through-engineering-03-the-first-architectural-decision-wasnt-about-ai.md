@@ -1,5 +1,6 @@
 ---
 title: "The First Architectural Decision Wasn't About AI"
+description: "The first decision in the RAG reference system was dependency direction: the core should not depend on its infrastructure."
 date: 2026-08-26
 draft: false
 series:

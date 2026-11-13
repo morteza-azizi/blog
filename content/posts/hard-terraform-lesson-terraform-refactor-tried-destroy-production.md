@@ -2,6 +2,7 @@
 date = '2026-03-15'
 draft = false
 title = 'A Hard Terraform Lesson: When a Terraform Refactor Tried to Destroy Production'
+description = 'A cost-saving Azure Container Registry refactor that Terraform tried to apply by destroying production, and what had to be true before the change was safe.'
 tags = ['terraform', 'azure', 'infrastructure', 'devops', 'container-registry', 'cost-optimization']
 +++
 

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# https://www.mortezaazizi.com/llms.txt
+Sitemap: https://www.mortezaazizi.com/sitemap.xml
