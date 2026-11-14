@@ -6,7 +6,36 @@
       <img src="{{ . | relURL }}" alt="">
     {{ else }}
       {{ $tone := substr (md5 $page.Title) 0 6 }}
-      <span class="post-card__fallback" style="background: linear-gradient(160deg, #{{ $tone }}33, #1e293b);">{{ substr $page.Title 0 1 }}</span>
+      {{ $icon := "fa-solid fa-pen-nib" }}
+      {{ with $page.GetTerms "series" }}
+        {{ $name := (index . 0).LinkTitle }}
+        {{ if eq $name "Microsoft Foundry" }}
+          {{ $icon = "fa-solid fa-robot" }}
+        {{ else if eq $name "Architecture Through Engineering" }}
+          {{ $icon = "fa-solid fa-compass-drafting" }}
+        {{ end }}
+      {{ end }}
+      {{ if eq $icon "fa-solid fa-pen-nib" }}
+        {{ $blob := lower (delimit ($page.Params.tags | default (slice)) " ") }}
+        {{ if or (in $blob "service bus") (or (in $blob "service-bus") (in $blob "messaging")) }}
+          {{ $icon = "fa-solid fa-diagram-project" }}
+        {{ else if or (in $blob "testing") (in $blob "testcontainers") }}
+          {{ $icon = "fa-solid fa-vial" }}
+        {{ else if or (in $blob "mermaid") (in $blob "diagrams") }}
+          {{ $icon = "fa-solid fa-sitemap" }}
+        {{ else if or (in $blob "copilot") (or (in $blob "cursor") (in $blob "ai coding")) }}
+          {{ $icon = "fa-solid fa-code" }}
+        {{ else if or (in $blob "terraform") (in $blob "azure") }}
+          {{ $icon = "fa-solid fa-cloud" }}
+        {{ else if or (in $blob "nuget") (in $blob "dotnet") }}
+          {{ $icon = "fa-solid fa-cube" }}
+        {{ else if in $blob "wine" }}
+          {{ $icon = "fa-solid fa-wine-glass" }}
+        {{ else if in $blob "ai" }}
+          {{ $icon = "fa-solid fa-brain" }}
+        {{ end }}
+      {{ end }}
+      <span class="post-card__fallback" style="--thumb: #{{ $tone }};"><i class="{{ $icon }}"></i></span>
     {{ end }}
   </div>
   <div class="post-card__body">
