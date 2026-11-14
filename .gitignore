@@ -3,6 +3,7 @@
 ################################################################################
 
 /.vs
+/resources/_gen/
 /public
 /public/categories/index.xml
 /public/posts/index.xml
