@@ -3,6 +3,8 @@ title: "10 Essential Cursor AI Features to Supercharge Your Development"
 description: "Ten Cursor features that matter in daily development: AI tab completion, edits, and chat inside a normal coding workflow."
 date: 2025-03-26
 draft: false
+aliases:
+  - /posts/15-essential-cursor-ai-features-to-supercharge-your-development/
 tags: ["Cursor AI", "AI coding", "developer tools", "productivity", "code generation", "programming"]
 ---
 
