@@ -36,26 +36,26 @@ This article injects six faults into the assistant, one at a time, and records t
 
 Foundry's responses have a lifecycle. A response created in `background` mode is polled until it reaches a terminal status. The [REST reference](https://ai.azure.com/api-reference/responses/get-response/) lists them: `completed`, `failed`, `cancelled`, `incomplete`, and the in-flight `queued` and `in_progress`.
 
-The Agent Service [limits and quotas page](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/limits-quotas-regions) is specific about `429`: use exponential backoff with jitter, and for sustained load consider provisioned throughput. Some `429` codes are not retryable by waiting, such as an exhausted session quota.
+The Agent Service [limits and quotas page](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/limits-quotas-regions) says to retry a `429` with exponential backoff and jitter. Some `429` codes are not retryable by waiting, such as an exhausted session quota.
 
 Two facts from earlier parts matter:
 
 - A `429` from the AI Gateway (Part 6) means the project exceeded tokens per minute. A `403` means it spent its quota. Those need different handling.
 - A tool call is a separate network call to a separate service. The model's output is not evidence that it succeeded.
 
-What the platform documents about a failed tool call is thinner than what the application logic needs. I separate three levels, because the application logic in this article rests on them:
+What the platform documents about a failed tool call is thinner than what the application logic needs. I keep documented, reported, and not found apart:
 
 | Level | Status | Source |
 |---|---|---|
 | A response has a `status` (`failed`, `incomplete`, and others) and an `error` object with a `code` | **Documented** | The Responses REST reference |
 | An `mcp_call` output item has an optional `error`, an `output`, and a `status` | **Documented** (field names and types) | The same reference |
 | `openapi_call` and `openapi_call_output` are output item types | **Documented** (type names only; I found no field-level description of a failed call) | The same reference |
-| A failed MCP tool call ends the whole response with `tool_user_error`, and the model never sees the error | **Reported, not documented.** A community report on Microsoft Q&A describes this on the new Responses API, with a workaround that is itself undocumented. I have not reproduced it | Microsoft Q&A |
-| What an OpenAPI tool failure looks like in the output | **Unknown** | Nobody I can cite |
+| A failed MCP tool call ends the whole response with `tool_user_error`, and the model never sees the error | **Reported**. A community report describes this on the new Responses API. I have not reproduced it | Microsoft Q&A |
+| What an OpenAPI tool failure looks like in the output | **Not found** | Nobody I can cite |
 
-If the community report is right, then a failed MCP call does not appear as an `mcp_call` item with an `error`. It appears as a failed response, and the agent never writes a sentence about it. That would change F3 and F6 completely. It would also change what Part 2's out-of-scope case does. So the application logic below is a hypothesis until the run has produced payloads for it.
+If the community report is right, a failed MCP call is a failed response, and the agent never writes about it. That would change F3 and F6, and it would change what Part 2's out-of-scope case does. The application logic below is a hypothesis until the run has produced payloads.
 
-A further fact is not from the platform. Azure SDK clients retry transient failures by default. For the Azure.Core-based clients I have used, that is three retries with exponential delay. A call that I wrap in my own retry policy is retried by two layers, and neither knows about the other. I verify the count in the experiment instead of repeating it.
+Azure SDK clients retry transient failures by default. For the Azure.Core-based clients I have used, that is three retries with exponential delay. A call that I wrap in my own retry policy is retried by two layers, and neither knows about the other. I count the calls in the experiment.
 
 Assumptions:
 
@@ -109,7 +109,7 @@ The agent's sentence is a courtesy. The application's decision is the control.
 
 That is the central design rule. If the only evidence that the MCP call failed is a paragraph saying so, the only thing that can react is another model reading the paragraph. The structured response is where evidence should live, and the application should read it.
 
-How much evidence the platform puts there, for each kind of tool, is what the run has to establish. Two outcomes are possible for a failed tool call: the agent writes about it, or the platform fails the response before the agent can. The application needs to handle both, and it must never treat a shape it does not recognise as success.
+The run has to show how much of that evidence the platform puts in the response. Two outcomes are possible: the agent writes about the failure, or the platform fails the response before the agent can. The application handles both. A shape it does not recognise is not success.
 
 The second rule is about retries. Retries recover transient failures, and they multiply load during an outage. They need a budget: a maximum number of attempts for the whole request, across every layer, not per layer.
 
@@ -126,63 +126,31 @@ using var cts = CancellationTokenSource.CreateLinkedTokenSource(requestAborted);
 cts.CancelAfter(TimeSpan.FromSeconds(45));
 ```
 
-**A single retry owner.** The SDK's default retry is turned off, and the application's policy is the only one. Two retry policies behind one another are the same as one that nobody can read.
+**One retry owner.** The SDK's default retry is turned off. The application's policy is the only one.
 
-**Classification.** The application decides what to do from the status, never from the reply text:
+**Classification.** The application decides from the status, never from the reply text.
 
-```csharp
-enum Next { Retry, Stop, ShowPartial }
+| Status | Next |
+|---|---|
+| `429` | Retry, after `Retry-After` |
+| `408`, `500`, `502`, `503`, `504` | Retry, inside the budget |
+| `403` | Stop. A spent quota will not clear by waiting |
+| `400`, anything else | Stop |
 
-static Next Classify(int status) => status switch
-{
-    429                             => Next.Retry,       // honour Retry-After
-    408 or 500 or 502 or 503 or 504 => Next.Retry,       // transient, within the budget
-    403                             => Next.Stop,        // gateway quota is spent; waiting will not help
-    400                             => Next.Stop,        // the request is wrong; so will be the next one
-    _                               => Next.Stop
-};
-```
+**Reading the response, not the reply.** The detector checks the response, then each output item.
 
-**Reading the response, not the reply.** The application inspects the structure at three levels, in order, and has a fourth outcome for anything it cannot place:
+1. `status` is `failed` or `incomplete`. Kind: `ResponseFailed`. Detail: `error.code`, for example `tool_user_error`.
+2. An `mcp_call` item has an `error` that is not null. Kind: `ToolCallFailed`.
+3. An `openapi_call` or `openapi_call_output` item is not a payload captured from a successful run. Kind: `Unclassified`. A person looks.
+4. No match. Kind: `None`.
 
-```csharp
-enum FailureKind { None, ResponseFailed, ToolCallFailed, Unclassified }
-
-static (FailureKind Kind, string Detail) ReadFailure(JsonElement response)
-{
-    // Level 1, documented: the response itself.
-    var status = response.GetProperty("status").GetString();
-    if (status is "failed" or "incomplete")
-        return (FailureKind.ResponseFailed, ErrorCode(response));          // error.code, for example tool_user_error
-
-    foreach (var item in response.GetProperty("output").EnumerateArray())
-    {
-        var type = item.GetProperty("type").GetString();
-
-        // Level 2, documented fields: an MCP call with an error.
-        if (type == "mcp_call" && item.TryGetProperty("error", out var e) && e.ValueKind != JsonValueKind.Null)
-            return (FailureKind.ToolCallFailed, e.ToString());
-
-        // Level 3, fields undocumented: an OpenAPI call. Parsed only after a failure has been captured.
-        if (type is "openapi_call" or "openapi_call_output" && !OpenApiOutcome.IsKnownGood(item))
-            return (FailureKind.Unclassified, type!);                      // not a pass: a person looks
-    }
-
-    return (FailureKind.None, "");
-}
-```
-
-Three rules sit in that code.
-
-- **An unrecognised shape is not success.** `OpenApiOutcome.IsKnownGood` is deliberately strict. It returns true only for payloads that were captured during a successful run. Anything else is `Unclassified`, and the application reports that it could not tell.
-- **The detector is tested against captured payloads.** Every fault in the experiment saves the raw response JSON to a fixtures folder. The detector's tests read those files. A shape without a fixture is a shape the detector does not claim to understand.
-- **`OpenApiOutcome` is written after F4.** I do not know what a failed OpenAPI call looks like in the output. Writing a parser for it now would be a guess with a unit test attached. The class stays a stub until a captured payload exists.
+`OpenApiOutcome` stays a stub until F4 has a captured payload. A parser written now would be a guess. Every fault saves the raw response JSON. The detector's tests read those files. A shape without a fixture is a shape the detector does not claim to understand.
 
 If any tool failed, or the response failed, the application shows the user what it can: the reply if there is one, and a notice that the lookup failed and the advice is incomplete. It does not hide the reply and does not retry silently. If the response failed outright, there is no reply, and the notice says why, using the error code.
 
 **The join.** The application writes its own correlation id, the response id, and the time into one log line, and sets the correlation id in the response's `metadata`. Whether any dependency can receive it is one of the questions below.
 
-Code: folder `08-resilience` in the series repo.
+Code: [08-resilience](https://github.com/morteza-azizi/microsoft-foundry-architecture/tree/main/08-resilience) in the series repo.
 
 ---
 
@@ -202,7 +170,7 @@ For F1, the user's request is made once, and the count is of calls arriving at t
 | F2 slow MCP | Nothing, or an error | The deadline passed | Fails at 45 seconds. Does not wait for 60 |
 | F3 MCP error, outcome A | That it could not read the queue | An `mcp_call` with an error | Shows the reply with a "lookup failed" notice |
 | F3 MCP error, outcome B (reported, not documented) | Nothing: the response failed | `status = failed`, an error code such as `tool_user_error` | Shows no reply and a notice with the code. Decides retry from the code, not from the text |
-| F4 `503` | Unknown | Unknown until observed. The item types `openapi_call` and `openapi_call_output` exist | `Unclassified` until a payload has been captured. A person looks |
+| F4 `503` | I do not know | I do not know until the run. The item types `openapi_call` and `openapi_call_output` exist | `Unclassified` until a payload has been captured. A person looks |
 | F5 empty index | That the runbooks do not cover it | Nothing in structure | Nothing. This is not a failure of a dependency |
 | F6 peek throws | Same two outcomes as F3 | Same two outcomes as F3 | Same as F3, and the cause is visible in the server log |
 
@@ -252,13 +220,11 @@ Fallback has its own cost. A fallback needs a source of truth that is not the fa
 
 Assumptions I am making explicit:
 
-- **Reads are idempotent.** Peeking twice is the same as peeking once. That is why retries are safe in this system. A tool that writes would break this, and Part 9 deals with the queue-based version of that problem.
+- **Reads are safe to repeat.** Peeking twice is the same as peeking once. That is why retries are safe in this system. A tool that writes would break this, and Part 9 deals with the queue-based version of that problem.
 - **Partial success is acceptable.** An answer without the producer is still useful. For other workflows it would be worse than no answer.
 - **The user can wait 45 seconds.** If the answer feeds an automated step, the budget is different.
 
-I considered letting the agent retry its own tool calls. It is the least code, and it is also the least visible. The model would be deciding how many times to hit a service from inside a reply I cannot count.
-
-I considered wrapping everything in a circuit breaker. For one assistant used by a few engineers, the value is small and the state is another thing to reason about. It is the right tool when many callers share a failing dependency.
+I considered letting the agent retry its own tool calls. It is the least code, and the least visible. The model would decide how many times to hit a service from inside a reply I cannot count.
 
 ---
 
@@ -266,7 +232,7 @@ I considered wrapping everything in a circuit breaker. For one assistant used by
 
 Do not retry when the failure is the answer. A `403` for a spent quota, a `400` for a bad request, and an MCP error saying a queue is not exposed are all deterministic. The second attempt gets the same response, and costs tokens.
 
-Do not retry a call that has a side effect without an idempotency key. The assistant has no such call. A notification or a resubmission added later would.
+Do not retry a call that has a side effect unless a repeat is safe. The assistant has no such call. A notification or a resubmission added later would.
 
 Do not retry while a person is waiting for a long time on a dependency that is down. Stop, say so, and let them decide.
 

@@ -38,15 +38,15 @@ Each later part added one thing to that agent, and one boundary around it.
 
 | # | Added | Decision | What the part showed |
 |---|---|---|---|
-| 1 | The agent definition | Instructions shape a reply. They do not grant a capability. | *Fill from Part 1's results* |
-| 2 | MCP server, one read-only tool | The server enforces scope. The annotation is a hint. | *Fill from Part 2's results* |
-| 3 | Producer Registry through an OpenAPI tool | The agent gets a projection of the API. The API sees a service identity, not the person. | *Fill from Part 3's results* |
-| 4 | Runbook retrieval | Lifecycle is decided at ingestion. Facts with a source come from the source. | *Fill from Part 4's results* |
-| 5 | Evaluation set | Fix the cases and the pass rule first. Use code where the check is code. | *Fill from Part 5's results* |
-| 6 | AI Gateway | Limits per project, one view of usage, partial tool coverage. | *Fill from Part 6's results* |
-| 7 | API Center | Discovery informs a builder. The agent version says what is allowed. | *Fill from Part 7's results* |
-| 8 | Resilience | Read failures from structure. One retry budget per request. | *Fill from Part 8's results* |
-| 9 | Service Bus | Remember the first response. Keep the agent off the bus. | *Fill from Part 9's results* |
+| 1 | The agent definition | Instructions shape a reply. They do not grant a capability. | Published. See that part. Not restated here |
+| 2 | MCP server, one read-only tool | The server enforces scope. The annotation is a hint. | Published. See that part. Not restated here |
+| 3 | Producer Registry through an OpenAPI tool | The agent gets a projection of the API. The API sees a service identity, not the person. | Not run yet |
+| 4 | Runbook retrieval | Lifecycle is decided at ingestion. Facts with a source come from the source. | Not run yet |
+| 5 | Evaluation set | Fix the cases and the pass rule first. Use code where the check is code. | Not run yet |
+| 6 | AI Gateway | Limits per project, one view of usage, partial tool coverage. | Not run yet |
+| 7 | API Center | Discovery informs a builder. The agent version says what is allowed. | Not run yet |
+| 8 | Resilience | Read failures from structure. One retry budget per request. | Not run yet |
+| 9 | Service Bus | Remember the first response. Keep the agent off the bus. | Not run yet |
 
 Some of these will not have survived. A decision I stated confidently in Part 3 may have been contradicted by what the API log showed. The next section is where that gets written down.
 
@@ -56,20 +56,20 @@ Several earlier parts rest on platform behaviour that was documented, reported, 
 
 | Part | Assumption, as written | Test | Result | Status |
 |---|---|---|---|---|
-| 2 | The server's identity can receive, complete, and dead-letter as well as peek, because the role has one receive action | Case 5, under the server's identity on a scratch queue | | |
-| 2 | A protocol-level refusal and a refusal returned as data are handled the same way by the platform | Cases 3a and 3b | | |
-| 3 | The API sees a Foundry managed identity, not the engineer, and the project and resource identities differ in the docs | Claims logged at the API | | |
-| 3 | The OpenAPI tool has no approval step | Approval prompts across all five cases | | |
-| 3 | A `null` or missing field is reported as unknown, not filled in | Case 3 | | |
-| 4 | Retrieved chunks are visible in the run output, and lifecycle can only be enforced at ingestion | Chunk records, `runbooks-all` against `runbooks-current` | | |
-| 5 | Evaluators can score the tool calls the harness records, including failed ones | The evaluation run, with Part 8's fixtures | | |
-| 6 | Existing MCP tools and OpenAPI tools bypass the AI Gateway, and the limits return `429` and `403` | Cases 1 to 4 | | |
-| 7 | A catalogue change does not reach an agent that was wired earlier | Case 5 | | |
-| 8 | A failed MCP call reaches the agent (outcome A) or fails the whole response (outcome B), and the choice may depend on how the server reports it | F3 and F6, both ways | | |
-| 8 | An OpenAPI failure appears in the output in a form the detector can classify | F4, from the captured fixture | | |
-| 8 | Retries across the SDK, the application, and the gateway multiply | Calls received for one request | | |
-| 9 | Lock renewal prevents redelivery in a healthy process, and does not cover a crashed one | Cases 2a, 2b, 2c | | |
-| 9 | An atomic claim admits exactly one winner under concurrency | Case 3 | | |
+| 2 | The server's identity can receive, complete, and dead-letter as well as peek, because the role has one receive action | Case 5, under the server's identity on a scratch queue | See the published part. Not judged here | Unresolved |
+| 2 | A protocol-level refusal and a refusal returned as data are handled the same way by the platform | Cases 3a and 3b | See the published part. Not judged here | Unresolved |
+| 3 | The API sees a Foundry managed identity, not the engineer, and the project and resource identities differ in the docs | Claims logged at the API | Not run yet | Unresolved |
+| 3 | The OpenAPI tool has no approval step | Approval prompts across all five cases | Not run yet | Unresolved |
+| 3 | A `null` or missing field is reported as unknown, not filled in | Case 3 | Not run yet | Unresolved |
+| 4 | Retrieved chunks are visible in the run output, and lifecycle can only be enforced at ingestion | Chunk records, `runbooks-all` against `runbooks-current` | Not run yet | Unresolved |
+| 5 | Evaluators can score the tool calls the harness records, including failed ones | The evaluation run, with Part 8's fixtures | Not run yet | Unresolved |
+| 6 | Existing MCP tools and OpenAPI tools go around the AI Gateway, and the limits return `429` and `403` | Cases 1 to 4 | Not run yet | Unresolved |
+| 7 | A catalogue change does not reach an agent that was wired earlier | Case 5 | Not run yet | Unresolved |
+| 8 | A failed MCP call reaches the agent (outcome A) or fails the whole response (outcome B), and the choice may depend on how the server reports it | F3 and F6, both ways | Not run yet | Unresolved |
+| 8 | An OpenAPI failure appears in the output in a form the detector can classify | F4, from the captured fixture | Not run yet | Unresolved |
+| 8 | Retries across the SDK, the application, and the gateway multiply | Calls received for one request | Not run yet | Unresolved |
+| 9 | Lock renewal prevents redelivery in a healthy process, and does not cover a crashed one | Cases 2a, 2b, 2c | Not run yet | Unresolved |
+| 9 | An atomic claim admits exactly one winner under concurrency | Case 3 | Not run yet | Unresolved |
 
 Status is one of **Held**, **Contradicted**, or **Unresolved**.
 
@@ -98,8 +98,8 @@ The prototype was one box. The enterprise shape is the same box, with a lot arou
 {{< mermaid >}}
 flowchart TD
     Monitor["DLQ monitor"] -->|"TriageRequested"| Req["triage-requests<br/>duplicate detection"]
-    Req --> Worker["Triage worker<br/>retry budget, idempotency"]
-    Worker <--> Store["Idempotency store"]
+    Req --> Worker["Triage worker<br/>retry budget, first response"]
+    Worker <--> Store["Claim store"]
     Worker --> Gateway["AI Gateway<br/>per-project limits"]
     Gateway --> Agent["Agent version<br/>fixed tools, reviewed"]
     Agent -->|"peek only"| Mcp["MCP server<br/>scope, allow list"]
@@ -137,7 +137,7 @@ Four kinds of concern are covered, and each is owned by something that is not th
 - **Reliability.** The worker and the application hold the retry budget and the classification. The agent only reports.
 - **Observability.** Correlation ids, response ids, and gateway logs. Their coverage is uneven, and the ledger records where.
 
-Complexity was added where a boundary needed an owner: the server, the projection, the ingestion filter, the idempotency store. It was not added where one was not needed.
+Complexity was added where a boundary needed an owner: the server, the projection, the ingestion filter, the claim store. It was not added where one was not needed.
 
 What stayed simple:
 
@@ -164,13 +164,7 @@ The path for one failed message:
 9. The worker publishes `TriageAdvice` keyed by the request id (Part 9).
 10. A person reads the advice and acts, or does not.
 
-The integration points that matter are the ones where one part's assumption meets another's:
-
-- **The gateway and the tools.** The AI Gateway governs the model and some MCP traffic. It does not govern the OpenAPI tool. The producer lookup is protected by the API's own gateway, a different one. Two gateways in the path is not redundancy. They have different jobs.
-- **Retries across layers.** Part 8 said one budget per request. The worker now retries, the AI Gateway returns `429`, and the SDK has its own defaults. The budget has to be applied to all three together.
-- **The catalogue and the agent.** Part 7 said the catalogue does not change what is already wired. A retired API in the catalogue is a ticket to change an agent version, not an automatic fix.
-- **Evaluation and change.** A new instruction, tool, or index version is a change. The set from Part 5 is the gate. Parts 2, 3, and 8 are each a source of new cases for it.
-- **Concurrency and capacity.** The worker's `MaxConcurrentCalls` is a number I set from the project's token limit. Raising one without the other moves the failure to a different place.
+Four joins matter. The AI Gateway does not govern the OpenAPI tool, so the producer lookup has its own gateway. The retry budget from Part 8 has to cover the worker, the gateway's `429`, and the SDK together. A retired entry in the catalogue does not change an agent that was already wired. `MaxConcurrentCalls` is set from the project's token limit.
 
 Decisions that changed once the pieces were combined belong here. I fill them in after the run, from the corrections ledger and from what actually changed. I do not write them in advance.
 
@@ -240,7 +234,7 @@ Simplifications I kept:
 - **One queue, one team, one region.**
 - **Fixed cases and a short set.**
 
-Assumptions that still hold, if the experiments agree: reads are idempotent, partial answers are acceptable, and the corpus is maintained by people who mark what is superseded. The corrections ledger lists the ones the experiments did not agree with. If one of them fails in your system, parts of the design change with it.
+Assumptions that still hold, if the experiments agree: reads are safe to repeat, partial answers are acceptable, and the corpus is maintained by people who mark what is superseded. The corrections ledger lists the ones the experiments did not agree with. If one of them fails in your system, parts of the design change with it.
 
 The alternative for a smaller system is in the next section.
 

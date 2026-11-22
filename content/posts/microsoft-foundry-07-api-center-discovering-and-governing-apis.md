@@ -86,13 +86,11 @@ Steps 1 to 3 are discovery. Step 4 is invocation. They have different owners.
 
 The line I draw is that **discovery informs a decision. It does not carry one out.**
 
-In Part 1 I made the agent definition a versioned asset: model, instructions, tools. An agent that discovers and calls tools at runtime has a tool list that depends on the day. The definition no longer describes the agent. The assistant would do something on Thursday that no version of it was reviewed to do.
+In Part 1 the agent definition is a versioned asset: model, instructions, tools. An agent that discovers tools at runtime has a tool list that changes by the day. No reviewed version describes it.
 
 > **The catalogue lists what exists. The agent version lists what is allowed.**
 
-So the design has two kinds of agent. A discovery agent can search the catalogue. It has the two registry tools and nothing else. Agents that do the work have their tools fixed at design time, by a person, from what the catalogue showed.
-
-What governance is allowed to refuse is also part of the architecture. A deprecated API stays visible, with its stage. A design-stage API is visible, and nobody can call it, because it does not exist. The catalogue should refuse to make either look available.
+So the design has two kinds of agent. A discovery agent can search the catalogue. It has the two registry tools and nothing else. Agents that do the work have their tools fixed at design time, by a person, from what the catalogue showed. A deprecated entry and a design-stage entry stay visible, and neither is available to call.
 
 ---
 
@@ -100,23 +98,17 @@ What governance is allowed to refuse is also part of the architecture. A depreca
 
 Registering the assets is the work of the API owners. The part that belongs to this series is how an agent reads the result.
 
-The catalogue entries carry the facts the earlier parts depended on: for each API, the owner, the stage, the deployment URL, and the authentication configuration. For the MCP server, the entry carries the authorization scheme. The `Manage Access` setting, in preview, restricts which users or groups see the server through the organizational catalogue.
+Each entry carries the owner, the stage, the deployment URL, and how to authenticate. `Manage Access`, in preview, restricts who sees a server in the organizational catalogue.
 
-The discovery client is a plain MCP client. Calling the registry from code is the same as any other MCP server:
+The discovery client is a plain MCP client, with a bearer token for an identity that can read the catalogue. Calling the registry is the same as any other MCP server:
 
 ```csharp
-var transport = new HttpClientTransport(
-    new HttpClientTransportOptions { Endpoint = new Uri(apiCenterMcpEndpoint) },
-    httpClientWithBearerToken);
-
-await using var client = await McpClient.CreateAsync(transport);
-
 var result = await client.CallToolAsync(
     "mcp_registry_search",
     new Dictionary<string, object?> { ["query"] = "producer owner" });
 ```
 
-The token is for an identity with `Azure API Center Data Reader`. The same call from an identity without it is a case in the experiment.
+The same call from an identity without `Azure API Center Data Reader` is a case in the experiment.
 
 The discovery agent is attached to that endpoint with the registry tools only, and `allowed_tools` set:
 
@@ -130,7 +122,7 @@ The discovery agent is attached to that endpoint with the registry tools only, a
 }
 ```
 
-Approval is off here, because both tools are read-only and the agent can change nothing. That would be the wrong setting for any tool that writes, and I keep it on this agent only.
+Approval is off, because both tools only read. I would not turn it off for a tool that writes.
 
 The discovery agent's instructions state what it is for, and what it is not for:
 
@@ -141,7 +133,7 @@ Prefer production stage. Say when only deprecated or design-stage entries match.
 You cannot call any API. Say who connects a tool to an agent.
 ```
 
-Code: folder `07-api-center` in the series repo.
+Code: [07-api-center](https://github.com/morteza-azizi/microsoft-foundry-architecture/tree/main/07-api-center) in the series repo.
 
 ---
 
@@ -163,13 +155,13 @@ This article depends on documented platform behaviour, and some of it is preview
 
 | Claim | Source | Status |
 |---|---|---|
-| Registry search results include asset type, lifecycle state, and description | API Center MCP documentation | Documented. Observed: pending (case 1) |
+| Registry search results include asset type, lifecycle state, and description | API Center MCP documentation | Documented |
 | The API Center MCP endpoint needs the Standard tier | API Center MCP documentation | Documented |
-| Catalogue visibility needs `Azure API Center Data Reader`, and assignments can take up to 24 hours | Private tool catalogue documentation (preview) | Documented. Observed: pending (case 4) |
-| `Manage Access` restricts who sees a server in the organizational catalogue | Build and register documentation (preview) | Documented. Not tested here |
-| A Foundry agent can call the API Center MCP endpoint as an MCP tool, and how it authenticates | None | Unknown. If a connection is needed, `require_approval: never` and the tool definition above change |
-| A change to lifecycle stage in the catalogue reaches an agent that was wired earlier | None | Unknown. I expect it does not. Observed: pending (case 5) |
-| The discovery agent recommends the production entry over a deprecated one | None | A hope, not a fact. Observed: pending (case 2) |
+| Catalogue visibility needs `Azure API Center Data Reader`, and assignments can take up to 24 hours | Private tool catalogue documentation (preview) | Documented |
+| `Manage Access` restricts who sees a server in the organizational catalogue | Build and register documentation (preview) | Documented |
+| A Foundry agent can call the API Center MCP endpoint as an MCP tool, and how it authenticates | None | Not found. If a connection is needed, `require_approval: never` and the tool definition above change |
+| A change to lifecycle stage in the catalogue reaches an agent that was wired earlier | None | Not found. I expect it does not. Case 5 checks |
+| The discovery agent recommends the production entry over a deprecated one | None | A hope |
 
 **Expected**
 
@@ -218,11 +210,7 @@ The costs are lifecycle and ownership:
 - **The MCP endpoint needs the Standard tier.** That is a cost decision before it is an architectural one.
 - **Catalogue changes do not propagate.** Case 5 shows whether an update reaches anything that was already wired.
 
-I assume the catalogue is reasonably fresh. If it is not, the first fix is a process that owns the entries. An agent cannot compensate for it.
-
-The alternative is a fixed list. The agent's tools are configured by hand, and discovery is a conversation. That is a fine design for a small system, and it has no new surface. It stops working when the number of APIs, or of teams building agents, outgrows what a few people can remember.
-
-I have not tested syncing API Center from an API Management instance, which it supports. It would reduce the staleness problem for gateway-fronted APIs. It does not remove the need for owners.
+The alternative is a fixed list in the agent definition, and discovery as a conversation. That is enough for a small system. It stops working when the number of APIs, or of teams, outgrows what a few people can remember.
 
 ---
 
