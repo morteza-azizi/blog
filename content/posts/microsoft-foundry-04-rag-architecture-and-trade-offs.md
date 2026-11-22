@@ -51,7 +51,7 @@ I chose the Azure AI Search tool for this article. Not because it is the best of
 Assumptions:
 
 - The corpus is twelve markdown runbooks, about 40 pages in total. Each has front matter with `status` (`current` or `superseded`), `version`, and `owner`.
-- Two runbooks cover the same procedure: `dlq-resubmit-v1.md` and `dlq-resubmit-v2.md`. Version 1 says to resubmit the whole queue from the portal. Version 2, written after an incident, says to check idempotency first and never bulk-resubmit. Version 1 is marked `superseded`.
+- Two runbooks cover the same procedure: `dlq-resubmit-v1.md` and `dlq-resubmit-v2.md`. Version 1 says to resubmit the whole queue from the portal. Version 2, written after an incident, says to check that a resubmit is safe to repeat, and never to bulk-resubmit. Version 1 is marked `superseded`.
 - One runbook says: "A queue's `MaxDeliveryCount` defaults to 10." The real `orders` queue is set to 5.
 - The corpus has no information about recovery objectives for any queue.
 
@@ -122,9 +122,9 @@ foreach (var doc in runbooks)
 
 The index has `Id`, `DocId`, `Title`, `Section`, `Version`, `Status`, `Content`, and `ContentVector`. `Title`, `Section`, and `Version` are there for the citation. `Status` is there as a safety net, and as a way for a test to see what the filter did.
 
-I split by heading, not by token count. A runbook section is a unit a person can follow: a cause, a check, an action. A fixed window cuts through those. That is a choice, not a default, and I did not tune it.
+I split by heading, not by token count. A fixed window would cut through a cause, a check, or an action. I did not tune the cut.
 
-The agent gets the Azure AI Search tool pointed at the `runbooks-current` index. Its instructions gain three lines:
+The agent gets the Azure AI Search tool pointed at the `runbooks-current` index. Its instructions gain four lines:
 
 ```text
 Answer questions about handling failed messages only from the retrieved runbook sections.
@@ -135,7 +135,7 @@ Do not state a queue's configuration from a runbook. Say it must be looked up.
 
 For the experiment I need a contrast. A second index, `runbooks-all`, is built with the status check removed. It contains both resubmit runbooks.
 
-Code: folder `04-rag` in the series repo.
+Code and corpus: [04-rag](https://github.com/morteza-azizi/microsoft-foundry-architecture/tree/main/04-rag) in the series repo.
 
 ---
 
@@ -156,9 +156,9 @@ Some of what this experiment depends on is platform behaviour I have not seen. I
 | Claim | Source | Status |
 |---|---|---|
 | The Azure AI Search tool queries one existing index | Foundry documentation | Documented |
-| The run output exposes the retrieved chunks, with ids and scores | None | Unknown. If it does not, I run the same query directly against the index and record what the index returns. That is a record of the search, not of what the agent was shown |
-| A query-time filter on `Status` can be applied through the tool | None | Unknown. If it cannot, ingestion is the only place lifecycle can be enforced, which is the point of case 3, and I say so |
-| Foundry IQ would handle this better | Foundry documentation describes the capabilities | Not tested |
+| The run output exposes the retrieved chunks, with ids and scores | None | Not found. If the run does not show them, I query the index and record what it returns. That is a record of the search, not of what the agent was shown |
+| A query-time filter on `Status` can be applied through the tool | None | Not found. If it cannot, ingestion is the only place lifecycle can be enforced. That is the point of case 3 |
+| Foundry IQ would handle this better | Foundry documentation describes the capabilities | A hope |
 
 **Expected**
 
@@ -201,7 +201,7 @@ Relevance and grounding fail in different ways.
 
 The cost is operational. Ingestion is a job to schedule, monitor, and re-run when the corpus changes. An index that lags its source is a stale answer with a citation. A change to chunking is a re-index and a change in what "relevant" meant yesterday.
 
-I did not choose the other two options. File search would have run in less time, and it is a good fit for a handful of documents attached to one agent. It does not give me the ingestion decision I wanted to test. Foundry IQ is where I would look for a system with several sources, several agents, and per-user permissions on the content. It builds on Azure AI Search, and parts of it are still in preview. I have not tested it here.
+I did not choose the other two options. File search hides the ingestion decision I wanted to test. Foundry IQ is where I would look for several sources, several agents, and per-user permissions. It builds on Azure AI Search, and parts of it are still in preview. I have not tested it here.
 
 I am assuming the corpus is small, one language, and maintained by people who mark what is superseded. If the front matter is not trustworthy, the filter is not either.
 

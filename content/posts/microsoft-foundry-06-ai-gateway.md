@@ -45,7 +45,7 @@ The governance page for [MCP tools](https://learn.microsoft.com/en-us/azure/foun
 
 That last list is the experiment. The assistant has an MCP tool from Part 2 and an OpenAPI tool from Part 3.
 
-The underlying APIM policy for token limits is `llm-token-limit`. I do not hand-write it here, because the portal sets these limits per project, but it shows what is being enforced:
+The portal sets the limit per project. The policy underneath is `llm-token-limit`:
 
 ```xml
 <llm-token-limit counter-key="@(context.Subscription.Id)"
@@ -101,36 +101,20 @@ Three steps, mostly configuration.
 2. Add both projects. Set the `triage` project to a higher token limit and the `summarizer` project to a lower one.
 3. Confirm routing. Make a call, then check API Management metrics for the request count and the `ApiManagementGatewayLogs` table in Log Analytics.
 
-Confirmation comes first, because a gateway that is configured but bypassed gives the same answers as no gateway. The documentation lists the symptom: requests bypass the gateway when the project was not enabled before the calls were made.
+Confirmation comes first, because a gateway that is configured but gone around gives the same answers as no gateway. The documentation lists the symptom: requests go around the gateway when the project was not enabled before the calls were made.
 
-The test harness uses a raw HTTP call instead of the SDK. An SDK that retries on `429` hides the status code I want to see.
+The test harness uses a raw HTTP call instead of the SDK. An SDK that retries on `429` hides the status code I want to see. Forty calls run in parallel. Each record keeps the status, `Retry-After`, and the header names.
 
 ```csharp
-using var http = new HttpClient();
-http.DefaultRequestHeaders.Authorization = new("Bearer", token);
-
-var calls = Enumerable.Range(0, 40).Select(async i =>
-{
-    var res = await http.PostAsJsonAsync($"{projectEndpoint}/openai/v1/responses",
-        new { model = deployment, input = prompt, max_output_tokens = 200 });
-
-    return new
-    {
-        Call = i,
-        Status = (int)res.StatusCode,
-        RetryAfterSeconds = res.Headers.RetryAfter?.Delta?.TotalSeconds,
-        Headers = res.Headers.Select(h => h.Key).ToArray()
-    };
-});
-
-foreach (var r in await Task.WhenAll(calls)) Console.WriteLine(r);
+var res = await http.PostAsJsonAsync($"{projectEndpoint}/openai/v1/responses",
+    new { model = deployment, input = prompt, max_output_tokens = 200 });
 ```
 
 I record the header names on every response. Which headers the gateway adds, and whether `Retry-After` is one of them, is a fact I want from the run.
 
 For the tool cases, I create a new MCP tool for the same server from Part 2 after the gateway is in place, and leave the existing one untouched. The documentation says routing is decided when the tool is created.
 
-Code: folder `06-ai-gateway` in the series repo.
+Code: [06-ai-gateway](https://github.com/morteza-azizi/microsoft-foundry-architecture/tree/main/06-ai-gateway) in the series repo.
 
 ---
 
@@ -150,14 +134,14 @@ Most of this article rests on documented behaviour that I have not yet seen. I k
 
 | Claim | Source | Status |
 |---|---|---|
-| Exceeding tokens per minute returns `429`. Exceeding the token quota returns `403` | AI Gateway configuration page | Documented. Observed: pending |
-| Limits apply per project | AI Gateway configuration page | Documented. Observed: pending (case 1, the `summarizer` project) |
-| Existing projects must be added to the gateway by hand | AI Gateway configuration page | Documented. Not tested here |
-| Only new MCP tools, not using managed OAuth, are routed through the gateway | MCP governance page (preview) | Documented. Observed: pending (case 3) |
-| OpenAPI tools are not supported by gateway governance | MCP governance page (preview) | Documented. Observed: pending (case 4) |
-| The gateway does not log tool traces | MCP governance page (preview) | Documented. Observed: pending |
-| The project endpoint is unchanged once the project is enabled | Implied by the verification steps | Not stated. Observed: pending |
-| Which headers the gateway adds, including `Retry-After` | None | Unknown. Observed: pending |
+| Exceeding tokens per minute returns `429`. Exceeding the token quota returns `403` | AI Gateway configuration page | Documented |
+| Limits apply per project | AI Gateway configuration page | Documented |
+| Existing projects must be added to the gateway by hand | AI Gateway configuration page | Documented |
+| Only new MCP tools, not using managed OAuth, are routed through the gateway | MCP governance page (preview) | Documented |
+| OpenAPI tools are not supported by gateway governance | MCP governance page (preview) | Documented |
+| The gateway does not log tool traces | MCP governance page (preview) | Documented |
+| The project endpoint is unchanged once the project is enabled | Implied by the verification steps | Not found |
+| Which headers the gateway adds, including `Retry-After` | None | Not found |
 
 Because the governance page describes a preview feature, any row marked documented can be out of date by the time I run it. A result that disagrees with the documentation is recorded as the result, and goes in the Part 10 corrections ledger.
 
@@ -201,13 +185,13 @@ It adds to the path. Every model call has another hop, another service, and anot
 Complexity grows in specific places:
 
 - **Two kinds of rejection.** `429` means wait. `403` on a quota means stop. A client that treats both as "retry" is wrong in one of them.
-- **Partial coverage.** Some traffic goes through and some does not. If an auditor asks "what did the agent call?", the gateway cannot answer for tools that bypass it, and the documentation says it does not log tool traces.
+- **Partial coverage.** Some traffic goes through and some does not. If an auditor asks "what did the agent call?", the gateway cannot answer for tools that go around it, and the documentation says it does not log tool traces.
 - **A setting made once.** Tool routing is decided at creation. A tool created yesterday is not governed by a policy added today.
 - **Limits are per project.** A fair split between two projects is not a fair split between users.
 
 I assume shared policy is wanted, and that someone owns it. A gateway nobody owns is a rate limit nobody remembers setting.
 
-The alternative I considered is the one that needs no gateway: a separate model deployment per project, each with its own quota. It contains the summarizer without an extra hop, and it is the first thing I would try. It costs more deployments to manage and gives no single view of usage. At two projects, it may be the better design. At twenty, the gateway earns its place.
+The alternative is a separate model deployment per project, each with its own quota. It contains the summarizer without an extra hop. At two projects I would try that first. At twenty, the gateway earns its place.
 
 ---
 

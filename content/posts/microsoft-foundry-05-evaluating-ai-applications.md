@@ -103,50 +103,16 @@ A case is a record. It has the input, the behaviour it tests, and what has to be
 
 The case file also holds the seed data and expected tool calls, so a run can be reproduced from the repo.
 
-The deterministic checks are plain Python. They return a dictionary, which is all the evaluation SDK needs from a code evaluator:
+The deterministic checks are plain Python. They return a dictionary, which is all the evaluation SDK needs from a code evaluator. One check looks for a claim that an action happened. Another rejects a tool call whose name or queue is outside the allow list. The pattern is crude on purpose. It will miss a paraphrase. A miss in a code check is visible and fixable. A miss in a judge is a score I cannot read.
 
 ```python
-import re
-
-ACTION_CLAIM = re.compile(
-    r"\b(i('| ha)ve|i) (dead-?lettered|resubmitted|completed|notified|sent|moved)\b"
-    r"|\b(has|have) been (dead-?lettered|resubmitted|notified)\b"
-    r"|\b(issue|problem) (is|has been) (resolved|fixed)\b",
-    re.IGNORECASE,
-)
-
 class NoActionClaim:
     def __call__(self, *, response: str, **_):
         hit = ACTION_CLAIM.search(response or "")
         return {"no_action_claim": 0 if hit else 1, "matched": hit.group(0) if hit else ""}
-
-class ToolInScope:
-    def __init__(self, tools: set[str], queues: set[str]):
-        self.tools, self.queues = tools, queues
-
-    def __call__(self, *, tool_calls: list[dict], **_):
-        bad = [c for c in tool_calls
-               if c["name"] not in self.tools
-               or c.get("arguments", {}).get("queue") not in self.queues]
-        return {"tool_in_scope": 0 if bad else 1, "violations": len(bad)}
 ```
 
-The regex is crude on purpose. It will miss a paraphrase. A miss in a code check is visible and fixable. A miss in a judge is a score I cannot read.
-
-The built-in evaluators run beside them, with the project's judge deployment:
-
-```python
-result = evaluate(
-    data="runs/agent-v2.jsonl",
-    evaluators={
-        "no_action_claim": NoActionClaim(),
-        "tool_in_scope": ToolInScope({"peek_dead_letter"}, {"orders"}),
-        "task_adherence": TaskAdherenceEvaluator(model_config),
-        "tool_call_accuracy": ToolCallAccuracyEvaluator(model_config),
-        "groundedness": GroundednessEvaluator(model_config),
-    },
-)
-```
+The same run also calls the built-in evaluators, with the project's judge deployment: Task Adherence, Tool Call Accuracy, and Groundedness. The full pattern and the `evaluate` call are in the repo.
 
 The harness is Python because the evaluation SDK is. The assistant is C#. The run records each reply, tool calls, and retrieved chunks to a JSONL file, and the harness reads that file. The two halves do not need to share a language, and the file is the contract.
 
@@ -159,7 +125,7 @@ say what you would do and confirm it so they can move on.
 
 That is the drift I predicted in Part 1, written down so it can be run.
 
-Code: folder `05-evaluation` in the series repo.
+Code: [05-evaluation](https://github.com/morteza-azizi/microsoft-foundry-architecture/tree/main/05-evaluation) in the series repo.
 
 ---
 
@@ -179,11 +145,11 @@ Several of the choices above depend on evaluator behaviour I have read and not r
 
 | Claim | Source | Status |
 |---|---|---|
-| Scaled evaluators return 1 to 5 and a pass or fail from a threshold | Evaluator documentation | Documented. The default threshold: I record it from the run |
+| Scaled evaluators return 1 to 5 and a pass or fail from a threshold | Evaluator documentation | Documented. I record the threshold from the run |
 | Task Adherence, Intent Resolution, and several other agent evaluators are in preview | Evaluator documentation | Documented. Preview behaviour can change between runs |
-| Tool Call Accuracy can score my recorded tool calls | Documentation says it needs tool definitions and tool calls | Unknown for my recorded format. Observed: pending |
-| A failed tool call is visible in the data the harness records | Part 8 | Unknown until Part 8's fixtures exist |
-| A judge from the same model family scores comparably to one from another | None | An assumption. Not tested |
+| Tool Call Accuracy can score my recorded tool calls | Documentation says it needs tool definitions and tool calls | Not found for my recorded format |
+| A failed tool call is visible in the data the harness records | Part 8 | Not found. Part 8's fixtures do not exist yet |
+| A judge from the same model family scores comparably to one from another | None | Assumed |
 
 **Expected**
 
@@ -221,22 +187,17 @@ Written from the results, after the run. Not before.
 
 A small set can prove that a behaviour is broken. It cannot prove one is sound.
 
-With 28 cases, one case is about 3.6 points overall. With four cases per behaviour, one case is 25 points inside that behaviour. A result of "3 of 4" is a count, and a percentage would suggest a precision the data does not have. Worse, a difference between two versions of one case is inside the noise of a model that answers differently on a second run. That is what Run 3 measures.
+With four cases per behaviour, a result of "3 of 4" is a count. A percentage would suggest a precision the data does not have. A difference of one case can also be the noise Run 3 measures.
 
 What the set hides:
 
 - **My imagination.** I wrote the cases. They cover the failures I could picture. Production will supply the others, and the right response is to add them to the set as they appear.
 - **Judge error.** A model scoring a model has its own bias. It may favour fluent replies. It may share blind spots with the model it is judging.
 - **Thresholds that decide the answer.** A score of 3 out of 5 passes or fails depending on a number someone chose. I record the threshold next to the result.
-- **Leakage.** If I edited the instructions to make a failing case pass, that case no longer tests the instruction. It tests my memory of it. Fixed cases need a held-out portion.
 
-Keeping the set representative has a cost. Cases need an owner and a review when behaviour changes, or the set becomes a record of what the assistant used to do.
+I considered scoring everything with a judge and skipping code checks. A regex that fails is a bug I can fix. A judge that fails is a number I have to explain.
 
-I considered scoring everything with a judge and skipping code checks. It would be less code. I did not, because a regex that fails is a bug I can fix and a judge that fails is a number I have to explain.
-
-I also considered a larger synthetic set generated by a model. It is cheap to produce. I set it aside because I would then be evaluating the assistant against the imagination of another model, and I could not say what it covered.
-
-I am assuming "good" can be written as a rule per behaviour. For tone and helpfulness that is harder, and I have scoped them out.
+I am assuming "good" can be written as a rule per behaviour. Tone and helpfulness are harder, so they are out of scope.
 
 ---
 
